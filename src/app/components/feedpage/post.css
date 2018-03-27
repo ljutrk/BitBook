@@ -1,0 +1,12 @@
+.img.responsive-img, video.responsive-video {
+    min-width: 100%;
+}
+
+.card-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin: 0;
+}
