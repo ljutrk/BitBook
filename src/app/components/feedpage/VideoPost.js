@@ -5,7 +5,7 @@ import { post } from './post.css';
 const VideoPost = () => {
     return (
         <div className="row">
-            <div className="col s12 offset-m3 m6">
+            <div className="col s12 offset-m2 m8">
                 <div className="card">
                     <div className="card-content white-text">
                         <video className="responsive-video" controls>
@@ -15,7 +15,7 @@ const VideoPost = () => {
                     <div className="card-action">
                         <HashRouter>
                             <React.Fragment>
-                                <Link to="/">Video Post</Link>
+                                <Link to="/">{post.type} post</Link>
                                 <Link to="/" className="right">15 Comments</Link>
                             </React.Fragment>
                         </HashRouter>
