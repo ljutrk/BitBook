@@ -3,20 +3,25 @@ import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
 
 const ImagePost = ({ post }) => {
+    console.log(post.id)
     return (
-        <div className="row">
-            <div className="col s12 offset-m2 m8">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="https://lorempixel.com/1000/1000/nature/" />
-                        <div className="card-action">
-                            <Link to="/">{post.type} post</Link>
-                            <Link to="/" className="right">15 Comments</Link>
+        <Fragment>
+            <div className="card">
+                <Link to={`/images/${post.id}`}>
+                    <div className="row">
+                        <div className="col s12 offset-m1 m10">
+                            <div className="card-image">
+                                <img src={post.imageUrl} />
+                            </div>
                         </div>
                     </div>
+                </Link>
+                <div className="card-action container">
+                    <span>{post.type} post</span>
+                    <Link to="/" className="right">15 Comments</Link>
                 </div>
             </div>
-        </div>
+        </Fragment>
 
     )
 }

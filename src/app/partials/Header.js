@@ -44,7 +44,7 @@ class Header extends React.Component {
     render() {
         // console.log(this.props.history);
         return (
-            <Fragment>
+            <header>
                 <nav className="nav-extended #039be5 light-blue darken-1">
                     <div className="nav-wrapper container">
                         <Link to='/' className="brand-logo">BitBook</Link>
@@ -65,7 +65,7 @@ class Header extends React.Component {
                     <li><Link to="/people">People</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
                 </ul>
-            </Fragment>
+            </header>
 
         )
     }

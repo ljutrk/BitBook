@@ -10,6 +10,7 @@ class FeedPage extends React.Component {
             posts: []
         }
     }
+
     componentDidMount() {
         const posts = postService.getPosts(url.baseUrl + url.posts)
             .then(postList => {
@@ -24,7 +25,6 @@ class FeedPage extends React.Component {
         if (!this.state.posts.length) {
             return <h1>loading...</h1>
         }
-
         const posts = this.state.posts;
 
         return (

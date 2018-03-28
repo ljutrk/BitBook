@@ -1,14 +1,21 @@
-footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px; 
-  color: white;
-}
-
 nav ul .nonClickable {
   font-size: 1rem;
     color: #fff;
     display: block;
     padding: 0 15px;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  padding: 20px 0;
+  color: #fff;
 }
