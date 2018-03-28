@@ -23,12 +23,8 @@ const VideoPost = ({ post }) => {
                         </div>
                     </div>
                     <div className="card-action">
-                        <HashRouter>
-                            <Fragment>
-                                <Link to="/">{post.type} post</Link>
-                                <Link to="/" className="right">15 Comments</Link>
-                            </Fragment>
-                        </HashRouter>
+                        <Link to="/">{post.type} post</Link>
+                        <Link to="/" className="right">15 Comments</Link>
                     </div>
                 </div>
             </div>

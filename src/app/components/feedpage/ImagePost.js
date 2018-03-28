@@ -10,12 +10,8 @@ const ImagePost = ({ post }) => {
                     <div className="card-image">
                         <img src="https://lorempixel.com/1000/1000/nature/" />
                         <div className="card-action">
-                            <HashRouter>
-                                <Fragment>
-                                    <Link to="/">{post.type} post</Link>
-                                    <Link to="/" className="right">15 Comments</Link>
-                                </Fragment>
-                            </HashRouter>
+                            <Link to="/">{post.type} post</Link>
+                            <Link to="/" className="right">15 Comments</Link>
                         </div>
                     </div>
                 </div>
