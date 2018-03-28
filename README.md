@@ -1,7 +1,9 @@
-## BitBook
+BitBook
+
   -This is the final project!
 
-## Project Structure
+
+Project Structure
 
 bit-book/
   README.md
@@ -31,7 +33,8 @@ bit-book/
     index.css
     index.js
 
-## Project Components
+
+Project Components
 
 <HashRouter>
   <App>
@@ -39,7 +42,7 @@ bit-book/
       <Header />
         <Main>
           <Switch>
-            <Route> // *n
+            <Routes>
           </Switch>
         </Main>
       <Footer />

@@ -2,10 +2,8 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-}
-
-.page-footer .footer-copyright {
-  justify-content: center;
+  padding: 20px; 
+  color: white;
 }
 
 nav ul .nonClickable {
