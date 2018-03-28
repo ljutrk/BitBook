@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
-import { FeedPage } from './components/feedpage/FeedPage';
+import Header from './partials/Header';
+import { Footer } from './partials/Footer';
+import { Main } from './Main';
 
 class App extends Component {
   render() {
     return (
-      <FeedPage />
+      <Fragment >
+        <Header />
+        <Main />
+        <Footer />
+      </Fragment >
     );
   }
 }
