@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { postService } from "../../../services/PostService";
 import { url } from "../../../shared/constants";
 import { PostFeedItem } from "./PostFeedItem";
+import M from 'materialize-css';
+import { CreatePost } from "./createPost/CreatePost";
+
 
 class FeedPage extends React.Component {
     constructor(props) {
@@ -10,6 +13,7 @@ class FeedPage extends React.Component {
             posts: []
         }
     }
+
     componentDidMount() {
         const posts = postService.getPosts(url.baseUrl + url.posts)
             .then(postList => {
@@ -28,7 +32,10 @@ class FeedPage extends React.Component {
         const posts = this.state.posts;
 
         return (
-            <PostFeedItem postList={posts} />
+            <Fragment>
+                <CreatePost />
+                <PostFeedItem postList={posts} />
+            </Fragment>
         );
     }
 }

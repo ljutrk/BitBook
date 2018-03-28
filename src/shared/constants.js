@@ -3,4 +3,9 @@ const url = {
     posts: "/api/Posts",
 }
 
-export { url };
+const button = {
+    active: "modal-action modal-close waves-effect waves-green btn-flat",
+    disabled: "modal-action modal-close waves-effect waves-green btn-flat disabled"
+}
+
+export { url, button };

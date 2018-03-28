@@ -8,13 +8,13 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="container">
+            <main className="container">
                 <Switch>
                     <Route exact path='/' component={FeedPage} />
                     <Route exact path='/people' component={PeoplePage} />
                     <Route exact path='/profile' component={ProfilePage} />
                 </Switch>
-            </div>
+            </main>
         );
     }
 }
