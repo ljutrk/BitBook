@@ -3,7 +3,6 @@ import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
 
 const ImagePost = ({ post }) => {
-    console.log(post.id)
     return (
         <Fragment>
             <div className="card">

@@ -3,7 +3,9 @@ const url = {
     posts: "/api/Posts",
     imagePost: "/api/ImagePosts/",
     textPost: "/api/TextPosts/",
-    videoPost: "/api/VideoPosts/"
+    videoPost: "/api/VideoPosts/",
+    comments: "/api/Comments?postId=",
+    user: "/api/users/"
 }
 
 export { url };
