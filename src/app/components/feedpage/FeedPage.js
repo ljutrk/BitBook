@@ -1,9 +1,7 @@
 import React from "react";
-import { VideoPost } from "./VideoPost";
-import { ImagePost } from "./ImagePost";
-import { TextPost } from "./TextPost";
 import { postService } from "../../../services/PostService";
 import { url } from "../../../shared/constants";
+import { PostFeedItem } from "./PostFeedItem";
 
 class FeedPage extends React.Component {
     constructor(props) {
@@ -12,7 +10,6 @@ class FeedPage extends React.Component {
             posts: []
         }
     }
-
     componentDidMount() {
         const posts = postService.getPosts(url.baseUrl + url.posts)
             .then(postList => {
@@ -23,26 +20,19 @@ class FeedPage extends React.Component {
     }
 
     render() {
+
+        if (!this.state.posts.length) {
+            return <h1>loading...</h1>
+        }
+
         const posts = this.state.posts;
 
         return (
-            <React.Fragment>
-                {
-                    posts.map((post) => {
-                        if (post.type === "text") {
-                            return <TextPost post={post} key={post.id} />
-                        }
-                        else if (post.type === "image") {
-                            return <ImagePost post={post} key={post.id} />
-                        }
-                        else if (post.type === "video") {
-                            return <VideoPost post={post} key={post.id} />
-                        }
-                    })
-                }
-            </React.Fragment>
+            <PostFeedItem postList={posts} />
         );
     }
 }
 
 export { FeedPage };
+
+

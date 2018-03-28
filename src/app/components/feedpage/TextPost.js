@@ -3,6 +3,7 @@ import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
 
 const TextPost = ({ post }) => {
+
     return (
         <div className="row">
             <div className="col s12 offset-m2 m8">
@@ -11,12 +12,8 @@ const TextPost = ({ post }) => {
                         <p>{post.text}</p>
                     </div>
                     <div className="card-action">
-                        <HashRouter>
-                            <React.Fragment>
-                                <Link to="/">{post.type} post</Link>
-                                <Link to="/" className="right">15 Comments</Link>
-                            </React.Fragment>
-                        </HashRouter>
+                        <Link to="/">{post.type} post</Link>
+                        <Link to="/" className="right">15 Comments</Link>
                     </div>
                 </div>
             </div>
