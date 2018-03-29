@@ -18,10 +18,10 @@ class Comment extends React.Component {
 
     componentDidMount() {
         this.fetchAvatar()
-        .then(response => this.setState({
-            avatar: response.avatarUrl,
-            name:response.name
-        }))
+            .then(response => this.setState({
+                avatar: response.avatarUrl,
+                name: response.name
+            }))
     }
 
     render() {
@@ -30,15 +30,16 @@ class Comment extends React.Component {
         return (
             <ul className="collection">
                 <li className="collection-item avatar">
-                <div>
-                    <img src={this.state.avatar} alt="user" className="circle" />
-                    <span>{this.state.name}</span>
-                </div>
+                    <div>
+                        <img src={this.state.avatar} alt="user" className="circle" />
+                        <span>{this.state.name}</span>
+                    </div>
                     <p>{comment.props.body}</p>
                 </li>
             </ul>
         )
     }
 }
+
 
 export { Comment };

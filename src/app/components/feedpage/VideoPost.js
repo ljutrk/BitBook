@@ -29,7 +29,7 @@ const VideoPost = ({ post }) => {
                 </Link>
                 <div className="card-action container">
                     <span>{post.type} post</span>
-                    <Link to="/" className="right">15 Comments</Link>
+                    <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
                 </div>
             </div>
         </Fragment>

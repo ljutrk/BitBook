@@ -6,6 +6,7 @@ import { VideoPost } from "../feedpage/VideoPost";
 import { myFetchGet } from "../../../services/apiService";
 import { url } from "../../../shared/constants";
 import { PostComment } from "../../../entities/PostComment";
+import { NewComment } from "./NewComment";
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
@@ -68,10 +69,11 @@ class PostDetailsPage extends React.Component {
         return (
             <Fragment>
                 {this.displayPost()}
+                <NewComment />
                 {(comments.length !== 0) ? comments.map((comment, index) => {
                     const newComment = new Comment(comment);
                     return <Comment comment={newComment} key={index} />
-                }) : "No comments yet..."}
+                }) : null}
             </Fragment>
         )
     }
