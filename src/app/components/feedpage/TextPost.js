@@ -19,7 +19,7 @@ const TextPost = ({ post, hasFooter = true }) => {
             <div className="card">
                 <Link to={`/post/text/${post.id}`}>
                     <div className="row">
-                        <div className="col s12 offset-m1 m10">
+                        <div className="col s12">
                             <div className="card-content center">
                                 <p>{post.text}</p>
                             </div>

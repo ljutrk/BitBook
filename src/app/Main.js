@@ -9,7 +9,7 @@ class Main extends Component {
 
     render() {
         return (
-            <main className="container">
+            <main className="container-main">
                 <Switch>
                     <Route path='/post/:type/:id' component={PostDetailsPage} />
                     <Route path='/people' component={PeoplePage} />

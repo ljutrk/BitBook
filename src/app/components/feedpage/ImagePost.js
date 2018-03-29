@@ -18,7 +18,7 @@ const ImagePost = ({ post, hasFooter = true }) => {
             <div className="card">
                 <Link to={`/post/image/${post.id}`}>
                     <div className="row">
-                        <div className="col s12 offset-m1 m10">
+                        <div className="col s12">
                             <div className="card-image">
                                 <img src={post.imageUrl} />
                             </div>

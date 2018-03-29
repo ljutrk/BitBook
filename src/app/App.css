@@ -1,3 +1,8 @@
+.container-main {
+  width: 45%;
+  margin: 0 auto;
+}
+
 nav ul .nonClickable {
   font-size: 1rem;
     color: #fff;
@@ -19,3 +24,5 @@ footer {
   padding: 20px 0;
   color: #fff;
 }
+
+

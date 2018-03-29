@@ -28,7 +28,7 @@ const VideoPost = ({ post, hasFooter = true }) => {
             <div className="card">
                 <Link to={`/post/video/${post.id}`}>
                     <div className="row">
-                        <div className="col s12 offset-m1 m10">
+                        <div className="col s12">
                             <div className="card-content white-text">
                                 <div className="video-container">
                                     <iframe width="853" height="480" src={ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
