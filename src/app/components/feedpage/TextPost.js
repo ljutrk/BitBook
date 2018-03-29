@@ -1,24 +1,38 @@
 import React, { Fragment } from "react";
-import { Link, HashRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { post } from './post.css';
+import { Comment } from "../postDetailsPage/Comment";
 
-const TextPost = ({ post }) => {
+const TextPost = ({ post, hasFooter = true }) => {
+
+    const renderFooter = () => {
+        return (
+            <div className="card-action container">
+                <span>{post.type} post</span>
+                <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
+            </div>
+        )
+    }
 
     return (
-        <div className="row">
-            <div className="col s12 offset-m2 m8">
-                <div className="card">
-                    <div className="card-content center">
-                        <p>{post.text}</p>
+        <Fragment>
+            <div className="card">
+                <Link to={`/post/text/${post.id}`}>
+                    <div className="row">
+                        <div className="col s12">
+                            <div className="card-content center">
+                                <p>{post.text}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="card-action">
-                        <Link to="/">{post.type} post</Link>
-                        <Link to="/" className="right">15 Comments</Link>
-                    </div>
-                </div>
+                </Link>
+                {(hasFooter) ? (renderFooter()) : null}
             </div>
-        </div>
+        </Fragment>
     )
+
+
+
 }
 
 export { TextPost };

@@ -3,7 +3,8 @@ import { myFetchGet } from "../services/apiService"
 import { Text } from "../entities/Text";
 import { Image } from "../entities/Image";
 import { Video } from "../entities/Video";
-
+import { url } from "../shared/constants";
+import { capitalizeFirstLetter } from "../shared/utils";
 
 class PostService {
 
@@ -21,6 +22,16 @@ class PostService {
             ))
     }
 
+    getPost = (type, id) => {
+        type = capitalizeFirstLetter(type);
+        const api = url.baseUrl + type + "Posts/" + id;
+        return myFetchGet(api)
+    }
+
+    getComments = (id) => {
+        const api = url.baseUrl + url.comments + id;
+        return myFetchGet(api)
+    }
 }
 
 export const postService = new PostService();

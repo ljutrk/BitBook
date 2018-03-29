@@ -36,7 +36,6 @@ class FeedPage extends React.Component {
         if (!this.state.posts.length) {
             return <h1>loading...</h1>
         }
-
         const posts = this.state.posts;
 
         return (

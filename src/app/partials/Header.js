@@ -20,7 +20,7 @@ class Header extends React.Component {
     render() {
 
         return (
-            <Fragment>
+            <header>
                 <nav className="nav-extended #039be5 light-blue darken-1">
                     <div className="nav-wrapper container">
                         <Link to='/' className="brand-logo">BitBook</Link>
@@ -38,7 +38,7 @@ class Header extends React.Component {
                     <li><Link className="sidenav-close" id="people" to="/people">People</Link></li>
                     <li><Link className="sidenav-close" id="profile" to="/profile">Profile</Link></li>
                 </ul>
-            </Fragment>
+            </header>
 
         )
     }

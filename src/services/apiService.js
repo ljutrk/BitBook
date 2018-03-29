@@ -78,4 +78,3 @@ const createNewVideoPost = (videoURL) => {
 
 
 export { myFetchGet, createNewTextPost, createNewImagePost, createNewVideoPost };
-
