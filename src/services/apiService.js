@@ -1,5 +1,3 @@
-
-
 const myFetchGet = (url) => {
     const requestOptions = {
         method: 'GET',
@@ -12,9 +10,10 @@ const myFetchGet = (url) => {
 
     return fetch(url, requestOptions)
         .then(response => response.json())
-};
+}
 
 const createNewTextPost = (text) => {
+
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -29,8 +28,10 @@ const createNewTextPost = (text) => {
 
     return fetch("http://bitbookapi.azurewebsites.net/api/TextPosts", requestOptions)
         .then(response => response.json())
-};
+}
+
 const createNewImagePost = (imageURL) => {
+
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -45,8 +46,20 @@ const createNewImagePost = (imageURL) => {
 
     return fetch("http://bitbookapi.azurewebsites.net/api/ImagePosts", requestOptions)
         .then(response => response.json())
-};
+}
+
 const createNewVideoPost = (videoURL) => {
+
+    let link = videoURL;
+
+    if (link.includes("watch?v=")) {
+        link = link.replace("watch?v=", "embed/");
+    }
+
+    if (link.includes("youtu.be/")) {
+        link = link.replace("youtu.be/", "youtube.com/embed/");
+    }
+
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -55,7 +68,7 @@ const createNewVideoPost = (videoURL) => {
             "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
         },
         body: JSON.stringify({
-            videoUrl: videoURL
+            videoUrl: link
         })
     }
 

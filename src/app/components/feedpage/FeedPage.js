@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { postService } from "../../../services/PostService";
-import { url } from "../../../shared/constants";
-import { PostFeedItem } from "./PostFeedItem";
 import M from 'materialize-css';
+import { url } from "../../../shared/constants";
+import { postService } from "../../../services/PostService";
+import { PostFeedItem } from "./PostFeedItem";
 import { CreatePost } from "./createPost/CreatePost";
 
 
@@ -10,17 +10,25 @@ class FeedPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: [],
+            postCreated: false
         }
     }
 
     componentDidMount() {
-        const posts = postService.getPosts(url.baseUrl + url.posts)
+
+        this.fetchMeStuff();
+    }
+
+    fetchMeStuff = () => {
+
+        postService.getPosts(url.baseUrl + url.posts)
             .then(postList => {
                 this.setState({
-                    posts: postList
-                })
-            })
+                    posts: postList,
+                    postCreated: !this.state.postCreated
+                });
+            });
     }
 
     render() {
@@ -33,7 +41,7 @@ class FeedPage extends React.Component {
 
         return (
             <Fragment>
-                <CreatePost />
+                <CreatePost fetchMeStuff={this.fetchMeStuff} />
                 <PostFeedItem postList={posts} />
             </Fragment>
         );
@@ -41,5 +49,4 @@ class FeedPage extends React.Component {
 }
 
 export { FeedPage };
-
 

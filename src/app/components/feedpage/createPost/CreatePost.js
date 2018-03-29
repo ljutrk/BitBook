@@ -5,8 +5,12 @@ import { NewImagePost } from './NewImagePost';
 import { NewVideoPost } from './NewVideoPost';
 
 class CreatePost extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
+
         const elem = document.querySelector('.fixed-action-btn');
         M.FloatingActionButton.init(elem, {
             hoverEnabled: false
@@ -15,35 +19,45 @@ class CreatePost extends React.Component {
     }
 
     textModalInitialization = (event) => {
-        console.log(event.target.id);
+
         const textModal = document.querySelector(`#${event.target.id}`);
-        const textModalInstance = M.Modal.init(textModal);
-        textModalInstance.open()
+        const textModalInstance = M.Modal.init(textModal, {
+            dismissible: false,
+        });
+
+        textModalInstance.open();
     }
 
     imageModalInitialization = (event) => {
-        console.log(event.target.id);
 
         const imageModal = document.querySelector(`#${event.target.id}`);
-        const imageModalInstance = M.Modal.init(imageModal);
-        imageModalInstance.open()
-    }
+        const imageModalInstance = M.Modal.init(imageModal, {
+            dismissible: false,
+        });
 
+        imageModalInstance.open();
+
+    }
 
     videoModalInitialization = (event) => {
-        console.log(event.target.id);
 
         const videoModal = document.querySelector(`#${event.target.id}`);
-        const videoModalInstance = M.Modal.init(videoModal);
-        videoModalInstance.open()
+        const videoModalInstance = M.Modal.init(videoModal, {
+            dismissible: false,
+        });
+
+        videoModalInstance.open();
     }
 
+
+
     render() {
+
         return (
             <Fragment>
-                <NewTextPost />
-                <NewImagePost />
-                <NewVideoPost />
+                <NewTextPost fetchMeStuff={this.props.fetchMeStuff} />
+                <NewImagePost fetchMeStuff={this.props.fetchMeStuff} />
+                <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} />
                 <div className="fixed-action-btn">
                     <a className="btn-floating btn-large red">
                         <i className="large material-icons">add</i>

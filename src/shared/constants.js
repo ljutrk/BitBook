@@ -8,4 +8,10 @@ const button = {
     disabled: "modal-action modal-close waves-effect waves-green btn-flat disabled"
 }
 
-export { url, button };
+const videoURL = {
+    watch: "youtube.com/watch?v=",
+    embed: "youtube.com/embed/",
+    shared: "youtu.be/"
+}
+
+export { url, button, videoURL };

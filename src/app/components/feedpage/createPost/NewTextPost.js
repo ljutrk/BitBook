@@ -9,12 +9,11 @@ class NewTextPost extends Component {
         this.state = {
             textValue: "",
             isTextInputEmpty: true
-
         }
     }
 
-
     textInputHandler = (event) => {
+
         this.setState({ textValue: event.target.value });
         this.setState({ isTextInputEmpty: false });
 
@@ -24,13 +23,16 @@ class NewTextPost extends Component {
     }
 
     createNewPost = () => {
-        createNewTextPost(this.state.textValue)
-            .then(response => console.log(response))
+        if (!this.state.isTextInputEmpty) {
+            createNewTextPost(this.state.textValue)
+                .then(res => {
+                    this.props.fetchMeStuff();
+                });
+        }
     }
 
-
-
     render() {
+
         return (
             <div id="text" className="modal">
                 <div className="modal-content">
