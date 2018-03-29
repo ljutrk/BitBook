@@ -7,9 +7,8 @@ import { myFetchGet } from "../../../services/apiService";
 import { url } from "../../../shared/constants";
 import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
-import { get } from "https";
 import { postService } from "../../../services/PostService";
-import { capitalizeFirstLetter } from "../../../shared/utils";
+
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
@@ -22,9 +21,9 @@ class PostDetailsPage extends React.Component {
     }
 
     fetchPost = () => {
-        const id = this.props.match.params.id;
-        const type = capitalizeFirstLetter(this.props.match.params.type);
-        return postService.getPost(type, id)
+        const { id, type} = this.props.match.params;
+        
+        return postService.getPost(type, id);
     }
 
     fetchComments = () => {
@@ -35,11 +34,10 @@ class PostDetailsPage extends React.Component {
                     comments: response
                 })
             }
-            )
+        )
     }
 
     componentDidMount() {
-
         this.fetchPost()
             .then(response => {
                 this.setState({ postObject: response })
@@ -52,11 +50,10 @@ class PostDetailsPage extends React.Component {
 
         if (postObject.type === "image") {
             return <ImagePost post={postObject} />
-        } else if (postObject.type === "text") { ///ovde prosledjujemo broj komentara iz state.comments
+        } else if (postObject.type === "text") { 
             return <TextPost post={postObject} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} />
-
         }
     }
 
@@ -67,9 +64,6 @@ class PostDetailsPage extends React.Component {
 
         const comments = this.state.comments;
         return (
-            // <h1>Ponovo radimo ceo feature 03
-            //     ...(a verovatno i 01)
-            // </h1>
             <Fragment>
                 {this.displayPost()}
                 <NewComment />

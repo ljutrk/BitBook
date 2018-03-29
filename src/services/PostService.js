@@ -4,6 +4,7 @@ import { Text } from "../entities/Text";
 import { Image } from "../entities/Image";
 import { Video } from "../entities/Video";
 import { url } from "../shared/constants";
+import { capitalizeFirstLetter } from "../shared/utils";
 
 class PostService {
 
@@ -22,6 +23,7 @@ class PostService {
     }
 
     getPost = (type, id) => {
+        type = capitalizeFirstLetter(type);
         const api = url.baseUrl + type + "Posts/" + id;
         return myFetchGet(api)
     }
