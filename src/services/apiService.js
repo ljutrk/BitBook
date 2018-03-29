@@ -1,5 +1,3 @@
-
-
 const myFetchGet = (url) => {
     const requestOptions = {
         method: 'GET',
