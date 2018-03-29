@@ -9,6 +9,7 @@ import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
 import { get } from "https";
 import { postService } from "../../../services/PostService";
+import { capitalizeFirstLetter } from "../../../shared/utils";
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class PostDetailsPage extends React.Component {
 
     fetchPost = () => {
         const id = this.props.match.params.id;
-        const type = (this.props.match.params.type)[0].toUpperCase() + (this.props.match.params.type).slice(1);
+        const type = capitalizeFirstLetter(this.props.match.params.type);
         return postService.getPost(type, id)
     }
 
