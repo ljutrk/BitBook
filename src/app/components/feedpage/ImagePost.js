@@ -2,7 +2,17 @@ import React, { Fragment } from "react";
 import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
 
-const ImagePost = ({ post }) => {
+const ImagePost = ({ post, hasFooter = true }) => {
+
+    const renderFooter = () => {
+        return (
+            <div className="card-action container">
+                <span>{post.type} post</span>
+                <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
+            </div>
+        )
+    }
+
     return (
         <Fragment>
             <div className="card">
@@ -15,10 +25,7 @@ const ImagePost = ({ post }) => {
                         </div>
                     </div>
                 </Link>
-                <div className="card-action container">
-                    <span>{post.type} post</span>
-                    <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
-                </div>
+                {(hasFooter) ? (renderFooter()) : null}
             </div>
         </Fragment>
 

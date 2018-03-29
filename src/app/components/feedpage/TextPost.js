@@ -3,7 +3,17 @@ import { Link } from "react-router-dom";
 import { post } from './post.css';
 import { Comment } from "../postDetailsPage/Comment";
 
-const TextPost = ({ post }) => {
+const TextPost = ({ post, hasFooter = true }) => {
+
+    const renderFooter = () => {
+        return (
+            <div className="card-action container">
+                <span>{post.type} post</span>
+                <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
+            </div>
+        )
+    }
+
     return (
         <Fragment>
             <div className="card">
@@ -16,10 +26,7 @@ const TextPost = ({ post }) => {
                         </div>
                     </div>
                 </Link>
-                <div className="card-action container">
-                    <span>{post.type} post</span>
-                    <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
-                </div>
+                {(hasFooter) ? (renderFooter()) : null}
             </div>
         </Fragment>
     )

@@ -4,7 +4,7 @@ import { url } from "../../../shared/constants";
 
 class Comment extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             avatar: null
         }
@@ -13,7 +13,7 @@ class Comment extends React.Component {
     fetchAvatar = () => {
         const userId = this.props.comment.props.authorId;
         const urlUser = url.baseUrl + url.user + userId;
-        return myFetchGet(urlUser)
+        return myFetchGet(urlUser);
     }
 
     componentDidMount() {

@@ -21,8 +21,7 @@ class PostDetailsPage extends React.Component {
     }
 
     fetchPost = () => {
-        const { id, type} = this.props.match.params;
-        
+        const { id, type } = this.props.match.params;
         return postService.getPost(type, id);
     }
 
@@ -49,11 +48,11 @@ class PostDetailsPage extends React.Component {
         const postObject = this.state.postObject;
 
         if (postObject.type === "image") {
-            return <ImagePost post={postObject} />
-        } else if (postObject.type === "text") { 
-            return <TextPost post={postObject} />
+            return <ImagePost post={postObject} hasFooter={false} />
+        } else if (postObject.type === "text") {
+            return <TextPost post={postObject} hasFooter={false} />
         } else if (postObject.type === "video") {
-            return <VideoPost post={postObject} />
+            return <VideoPost post={postObject} hasFooter={false} />
         }
     }
 
@@ -70,7 +69,7 @@ class PostDetailsPage extends React.Component {
                 {(comments.length !== 0) ? comments.map((comment, index) => {
                     const newComment = new Comment(comment);
                     return <Comment comment={newComment} key={index} />
-                }) : null}
+                }) : <div class="card no-comment-card">There are no comments yet...</div>}
             </Fragment>
         )
     }

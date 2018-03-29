@@ -3,10 +3,6 @@ import { newComment } from "./newComment.css";
 
 const NewComment = () => {
 
-    // clickHandler = () => {
-
-    // }
-
     return (
         <div className="row">
             <form className="col s12">
