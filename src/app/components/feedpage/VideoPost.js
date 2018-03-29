@@ -16,7 +16,7 @@ const VideoPost = ({ post }) => {
     return (
         <Fragment>
             <div className="card">
-                <Link to={`/videos/${post.id}`}>
+                <Link to={`/post/video/${post.id}`}>
                     <div className="row">
                         <div className="col s12 offset-m1 m10">
                             <div className="card-content white-text">

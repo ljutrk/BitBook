@@ -7,7 +7,7 @@ const TextPost = ({ post }) => {
     return (
         <Fragment>
             <div className="card">
-                <Link to={`/texts/${post.id}`}>
+                <Link to={`/post/text/${post.id}`}>
                     <div className="row">
                         <div className="col s12 offset-m1 m10">
                             <div className="card-content center">

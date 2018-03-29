@@ -6,7 +6,7 @@ const ImagePost = ({ post }) => {
     return (
         <Fragment>
             <div className="card">
-                <Link to={`/images/${post.id}`}>
+                <Link to={`/post/image/${post.id}`}>
                     <div className="row">
                         <div className="col s12 offset-m1 m10">
                             <div className="card-image">

@@ -11,12 +11,10 @@ class Main extends Component {
         return (
             <main className="container">
                 <Switch>
-                    <Route exact path='/' component={FeedPage} />
-                    <Route exact path='/people' component={PeoplePage} />
-                    <Route exact path='/profile' component={ProfilePage} />
-                    <Route path='/texts/:id' component={PostDetailsPage} />
-                    <Route path='/images/:id' component={PostDetailsPage} />
-                    <Route path='/videos/:id' component={PostDetailsPage} />
+                    <Route path='/post/:type/:id' component={PostDetailsPage} />
+                    <Route path='/people' component={PeoplePage} />
+                    <Route path='/profile' component={ProfilePage} />
+                    <Route path='/' component={FeedPage} />
                 </Switch>
             </main>
         );

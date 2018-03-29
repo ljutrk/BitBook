@@ -7,10 +7,13 @@ import { myFetchGet } from "../../../services/apiService";
 import { url } from "../../../shared/constants";
 import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
+import { get } from "https";
+import { postService } from "../../../services/PostService";
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
         super(props)
+
         this.state = {
             postObject: null,
             comments: []
@@ -18,33 +21,28 @@ class PostDetailsPage extends React.Component {
     }
 
     fetchPost = () => {
-        const currentUrl = this.props.match.url;
-
-        if (currentUrl.includes("/images")) {
-            const imageEndpoint = url.baseUrl + url.imagePost + this.props.match.params.id;
-            return myFetchGet(imageEndpoint);
-        } else if (currentUrl.includes("/texts")) {
-            const textEndpoint = url.baseUrl + url.textPost + this.props.match.params.id;
-            return myFetchGet(textEndpoint);
-        } else if (currentUrl.includes("/videos")) {
-            const videoEndpoint = url.baseUrl + url.videoPost + this.props.match.params.id;
-            return myFetchGet(videoEndpoint);
-        }
+        const id = this.props.match.params.id;
+        const type = (this.props.match.params.type)[0].toUpperCase() + (this.props.match.params.type).slice(1);
+        return postService.getPost(type, id)
     }
 
     fetchComments = () => {
-        const commentsUrl = url.baseUrl + url.comments + this.props.match.params.id;
-        myFetchGet(commentsUrl)
-            .then(response => this.setState({
-                comments: response
-            })
+        const id = this.props.match.params.id;
+        return postService.getComments(id)
+            .then(response => {
+                this.setState({
+                    comments: response
+                })
+            }
             )
     }
 
     componentDidMount() {
-        this.fetchPost()
-            .then(response => { this.setState({ postObject: response }) })
 
+        this.fetchPost()
+            .then(response => {
+                this.setState({ postObject: response })
+            })
         this.fetchComments()
     }
 
@@ -57,6 +55,7 @@ class PostDetailsPage extends React.Component {
             return <TextPost post={postObject} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} />
+
         }
     }
 
@@ -67,6 +66,9 @@ class PostDetailsPage extends React.Component {
 
         const comments = this.state.comments;
         return (
+            // <h1>Ponovo radimo ceo feature 03
+            //     ...(a verovatno i 01)
+            // </h1>
             <Fragment>
                 {this.displayPost()}
                 <NewComment />
