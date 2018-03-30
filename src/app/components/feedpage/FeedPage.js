@@ -41,7 +41,7 @@ class FeedPage extends React.Component {
         return (
             <Fragment>
                 <CreatePost fetchMeStuff={this.fetchMeStuff} />
-                <PostFeedItem postList={posts} />
+                <PostFeedItem postList={posts} fetchMeStuff={this.fetchMeStuff} />
             </Fragment>
         );
     }

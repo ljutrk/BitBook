@@ -1,11 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { post } from './post.css';
 import { Comment } from "../postDetailsPage/Comment";
+import { postService } from '../../../services/PostService'
 
-const TextPost = ({ post, hasFooter = true }) => {
-
-    const renderFooter = () => {
+// const TextPost = ({ post, hasFooter = true, fetchMeStuff }) => {
+class TextPost extends Component {
+    constructor(props) {
+        super(props);
+    }
+    renderFooter = () => {
+        const { post } = this.props;
         return (
             <div className="card-action container">
                 <span>{post.type} post</span>
@@ -14,25 +19,41 @@ const TextPost = ({ post, hasFooter = true }) => {
         )
     }
 
-    return (
-        <Fragment>
-            <div className="card">
-                <Link to={`/post/text/${post.id}`}>
+    clickHandler = (event) => {
+        this.props.fetchMeStuff()
+        postService.deletePost(this.props.post.id)
+            .then(res => {
+                this.props.fetchMeStuff()
+            })
+
+    }
+
+    render() {
+
+        const { post, hasFooter = true, fetchMeStuff } = this.props;
+
+        return (
+            <Fragment>
+                <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <div className="card-content center">
-                                <p>{post.text}</p>
-                            </div>
+                            <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
+                            {/* <span className="right">X</span> */}
+                            <Link to={`/post/text/${post.id}`}>
+                                <div className="card-content center">
+                                    <p>{post.text}</p>
+                                </div>
+                            </Link>
                         </div>
                     </div>
-                </Link>
-                {(hasFooter) ? (renderFooter()) : null}
-            </div>
-        </Fragment>
-    )
+                    {(hasFooter) ? (this.renderFooter()) : null}
+                </div>
+            </Fragment>
+        )
 
 
 
+    }
 }
 
 export { TextPost };

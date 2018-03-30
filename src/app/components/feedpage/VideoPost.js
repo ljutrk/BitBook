@@ -1,10 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
+import { postService } from '../../../services/PostService'
 
-const VideoPost = ({ post, hasFooter = true }) => {
 
-    const ifEmbededVideo = (url) => {
+class VideoPost extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    ifEmbededVideo = (url) => {
         const toReplace = "watch?v=";
         const replaceWith = "embed/"
         if (url.includes(toReplace)) {
@@ -14,7 +19,8 @@ const VideoPost = ({ post, hasFooter = true }) => {
         }
     }
 
-    const renderFooter = () => {
+    renderFooter = () => {
+        const { post } = this.props;
         return (
             <div className="card-action container">
                 <span>{post.type} post</span>
@@ -23,24 +29,39 @@ const VideoPost = ({ post, hasFooter = true }) => {
         )
     }
 
-    return (
-        <Fragment>
-            <div className="card">
-                <Link to={`/post/video/${post.id}`}>
+    clickHandler = (event) => {
+
+        this.props.fetchMeStuff()
+        postService.deletePost(this.props.post.id)
+            .then(res => {
+                this.props.fetchMeStuff()
+            })
+
+    }
+
+    render() {
+
+        const { post, hasFooter = true } = this.props;
+
+        return (
+            <Fragment>
+                <div className="card">
                     <div className="row">
                         <div className="col s12">
+                            <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
                             <div className="card-content white-text">
-                                <div className="video-container">
-                                    <iframe width="853" height="480" src={ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
-                                </div>
+                                <Link to={`/post/video/${post.id}`}>
+                                    <div className="video-container">
+                                        <iframe width="853" height="480" src={this.ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                </Link>
-                {(hasFooter) ? (renderFooter()) : null}
-            </div>
-        </Fragment>
-    )
+                    {(hasFooter) ? (this.renderFooter()) : null}
+                </div>
+            </Fragment >
+        )
+    }
 }
-
 export { VideoPost };
