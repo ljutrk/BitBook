@@ -22,6 +22,7 @@ class Comment extends React.Component {
                 avatar: response.avatarUrl,
                 name: response.name
             }))
+
     }
 
     render() {
