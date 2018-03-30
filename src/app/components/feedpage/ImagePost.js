@@ -28,7 +28,6 @@ const ImagePost = ({ post, hasFooter = true }) => {
                 {(hasFooter) ? (renderFooter()) : null}
             </div>
         </Fragment>
-
     )
 }
 

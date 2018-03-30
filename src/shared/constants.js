@@ -5,8 +5,8 @@ const url = {
     // textPost: "/api/TextPosts/",
     // videoPost: "/api/VideoPosts/",
     comments: "Comments?postId=",
-    newComment: "Comments",
-    user: "users/"
+    users: "users/",
+    newComment: "Comments"
 }
 
 const button = {
