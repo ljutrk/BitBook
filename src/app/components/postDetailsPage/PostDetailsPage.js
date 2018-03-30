@@ -33,7 +33,7 @@ class PostDetailsPage extends React.Component {
                     comments: response
                 })
             }
-        )
+            )
     }
 
     componentDidMount() {
@@ -60,16 +60,15 @@ class PostDetailsPage extends React.Component {
         if (!this.state.postObject) {
             return <h1>...</h1>
         }
-
-        const comments = this.state.comments;
+        const comments = (this.state.comments).reverse();
         return (
             <Fragment>
                 {this.displayPost()}
-                <NewComment />
+                <NewComment postId={this.state.postObject.id} fetchComments={this.fetchComments} />
                 {(comments.length !== 0) ? comments.map((comment, index) => {
                     const newComment = new Comment(comment);
                     return <Comment comment={newComment} key={index} />
-                }) : <div class="card no-comment-card">There are no comments yet...</div>}
+                }) : <div className="card no-comment-card">There are no comments yet...</div>}
             </Fragment>
         )
     }

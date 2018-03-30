@@ -1,3 +1,5 @@
+import { url } from "../shared/constants";
+
 const myFetchGet = (url) => {
     const requestOptions = {
         method: 'GET',
@@ -77,4 +79,22 @@ const createNewVideoPost = (videoURL) => {
 };
 
 
-export { myFetchGet, createNewTextPost, createNewImagePost, createNewVideoPost };
+const postNewComment = (comment, id) => {
+    const api = url.baseUrl + url.newComment;
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Key": "bitbook",
+            "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
+        },
+        body: JSON.stringify({
+            body: comment,
+            postId: id
+        }),
+    }
+    return fetch(api, requestOptions)
+}
+
+export { myFetchGet, createNewTextPost, createNewImagePost, createNewVideoPost, postNewComment };
