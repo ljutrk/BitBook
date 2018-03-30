@@ -6,39 +6,28 @@ class NewComment extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            textValue: "",
-            isTextInputEmpty: true,
-            isCommentSent: false
+            textValue: ""
         }
-    }
-
-    errorMessage = () => {
-        return <p className="invalid-comment"> Please enter valid comment! </p>
     }
 
     getInputValue = event => {
         this.setState({ textValue: event.target.value });
-        this.setState({ isTextInputEmpty: false });
-
-        if (event.target.value.length === 0) {
-            this.setState({ isTextInputEmpty: true });
-        }
     }
 
     createNewComment = () => {
-        const { postId, fetchComments } = this.props;
-        if (!this.state.isTextInputEmpty) {
-            const value = this.state.textValue;
-            postNewComment(value, postId)
-                .then(response => {
-                    this.setState({
-                        isCommentSent: true
-                    });
-                }).then(() => {
-                    fetchComments()
-                });
+        if (!this.state.textValue) {
+            return;
         }
-        document.querySelector("#textarea1").value = "";
+
+        const { postId, fetchComments } = this.props;
+        const value = this.state.textValue;
+
+        postNewComment(value, postId)
+            .then(() => {
+                this.setState({ textValue: "" });
+                fetchComments()
+            });
+
     }
 
     render() {
@@ -47,8 +36,8 @@ class NewComment extends React.Component {
             <div className="row">
                 <form className="col s12">
                     <div className="row">
-                        <textarea id="textarea1" className="materialize-textarea col s11" onChange={this.getInputValue} placeholder="Add your comment..."></textarea>
-                        <a className="btn col s1 #2196f3 blue" id="button-send" onClick={this.createNewComment}>Send</a>
+                        <textarea id="textarea1" className="materialize-textarea col s11" onChange={this.getInputValue} value={this.state.textValue} placeholder="Add your comment..."></textarea>
+                        <a className={`${(!this.state.textValue) ? `btn col s1 #2196f3 blue disabled` : "btn col s1 #2196f3 blue"}`} id="button-send" onClick={this.createNewComment}>Send</a>
                     </div>
                 </form>
             </div>
