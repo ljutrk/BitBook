@@ -33,6 +33,8 @@ class PostService {
         return myFetchGet(api)
     }
 
+
+
     deletePost = (id) => {
         const requestOptions = {
             method: 'DELETE',
