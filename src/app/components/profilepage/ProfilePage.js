@@ -14,14 +14,20 @@ const ProfilePage = () => {
                         <h3 className="card-title profile-title">Card Title</h3>
                         <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                         <div className="row">
-                            <div className="col s4 col m4 offset-m1 ">
+                            <div className="col s4 col m4 offset-m1 col l3">
                                 <div className="profile-counter">
-                                    <span classname="profile-inner-counter">c</span>
+                                    <div className="profile-inner-mark-holder">
+                                        <span id="profile-inner-mark">c</span>
+                                    </div>
+                                    <span classname="profile-inner-counter"> posts</span>
                                 </div>
                             </div>
-                            <div className="col s4 offset-s4 col m4 offset-m2">
+                            <div className="col s4 offset-s4 col m4 offset-m2 col l3 offset-l6">
                                 <div className="profile-counter">
-                                    <span classname="profile-inner-counter">c</span>
+                                    <div className="profile-inner-mark-holder">
+                                        <span id="profile-inner-mark">c</span>
+                                    </div>
+                                    <span classname="profile-inner-counter"> comments</span>
                                 </div>
                             </div>
                         </div>

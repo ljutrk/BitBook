@@ -27,6 +27,24 @@
     margin-top: 60%;
 }
 
+.profile-inner-mark-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    border-radius: 50%;
+    width: 30px;
+    height: 100%;
+}
+
+#profile-inner-mark {
+    position: absolute;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    top: 0;
+}
+
 @media(min-width: 992px) {
     .container-main {
         width: 80%;
