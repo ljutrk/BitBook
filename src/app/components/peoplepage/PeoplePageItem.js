@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const PeoplePageItem = ({ user }) => {
 
@@ -20,10 +21,10 @@ const PeoplePageItem = ({ user }) => {
         <div className="row">
             <ul className="collection">
                 <li className="collection-item avatar ">
-                    <img src={userPicture} alt="" className="circle" />
+                    <img src={userPicture} alt="single-user" className="circle" />
                     <span className="right">Last post <br />
                         at {getDate()}</span>
-                    <span className="title">{user.name}</span>
+                    <Link to={`/people/${user.id}`} className="title">{user.name}</Link>
                     <p> {user.aboutShort}</p>
                 </li>
             </ul>
