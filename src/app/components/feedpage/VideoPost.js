@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
-import { postService } from '../../../services/PostService'
+import DeleteButton from '../../partials/DeleteButton';
 
 
 class VideoPost extends Component {
@@ -29,26 +29,26 @@ class VideoPost extends Component {
         )
     }
 
-    clickHandler = (event) => {
+    // clickHandler = (event) => {
 
-        this.props.fetchMeStuff()
-        postService.deletePost(this.props.post.id)
-            .then(res => {
-                this.props.fetchMeStuff()
-            })
+    //     // this.props.fetchMeStuff()
+    //     postService.deletePost(this.props.post.id)
+    //         .then(res => {
+    //             this.props.fetchMeStuff()
+    //         })
 
-    }
+    // }
 
     render() {
 
-        const { post, hasFooter = true } = this.props;
+        const { post, hasFooter = true, fetchMeStuff } = this.props;
 
         return (
             <Fragment>
                 <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
+                            <DeleteButton fetchMeStuff={fetchMeStuff} post={post} />
                             <div className="card-content white-text">
                                 <Link to={`/post/video/${post.id}`}>
                                     <div className="video-container">

@@ -15,10 +15,26 @@ class FeedPage extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
 
         this.fetchMeStuff();
     }
+
+    componentWillReceiveProps(nextProps) {
+        // console.log("this.props", this.props);
+        // console.log("nextProps", this.nextProps);
+
+
+        this.fetchMeStuff();
+
+
+    }
+
+    componentDidMount() {
+        console.log(this.props);
+        this.fetchMeStuff();
+    }
+
 
     fetchMeStuff = () => {
 

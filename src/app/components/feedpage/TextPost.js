@@ -2,7 +2,8 @@ import React, { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { post } from './post.css';
 import { Comment } from "../postDetailsPage/Comment";
-import { postService } from '../../../services/PostService'
+import DeleteButton from '../../partials/DeleteButton';
+
 
 // const TextPost = ({ post, hasFooter = true, fetchMeStuff }) => {
 class TextPost extends Component {
@@ -19,26 +20,25 @@ class TextPost extends Component {
         )
     }
 
-    clickHandler = (event) => {
-        this.props.fetchMeStuff()
-        postService.deletePost(this.props.post.id)
-            .then(res => {
-                this.props.fetchMeStuff()
-            })
+    // clickHandler = (event) => {
+    //     this.props.fetchMeStuff()
+    //     postService.deletePost(this.props.post.id)
+    //         .then(res => {
+    //             this.props.fetchMeStuff()
+    //         })
 
-    }
+    // }
 
     render() {
 
-        const { post, hasFooter = true, fetchMeStuff } = this.props;
+        const { post, hasFooter = true, onDeleteButtonClick } = this.props;
 
         return (
             <Fragment>
                 <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
-                            {/* <span className="right">X</span> */}
+                            <DeleteButton onButtonClick={onDeleteButtonClick} post={post} />
                             <Link to={`/post/text/${post.id}`}>
                                 <div className="card-content center">
                                     <p>{post.text}</p>

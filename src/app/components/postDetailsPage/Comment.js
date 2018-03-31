@@ -27,6 +27,8 @@ class Comment extends React.Component {
 
     render() {
         const { comment } = this.props;
+        console.log(this.props);
+
 
         return (
             <ul className="collection">
