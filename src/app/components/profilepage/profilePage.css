@@ -1,0 +1,71 @@
+.card.profile {
+    box-shadow: none;
+    -webkit-box-shadow: 0;
+}
+
+.card .card-image img.profile-img {
+    width: 35%;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.card .card-content .card-title.profile-title {
+    margin: 30px 0;
+    position: static;
+    color: #111;
+}
+
+.card-content.profile-text {
+    text-align: center;
+}
+
+.profile-btn-holder {
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.profile-btn {
+    display:inline-block;
+    background-color: #555;
+    color: #fff;
+    border-radius: 20px;
+}
+    
+.profile-counter-holder {
+    box-sizing: border-box;
+    float: left;
+    padding: 8px 18px;
+    height: 100%;
+    background-color: #888;
+    border-radius: 20px;
+}
+
+.profile-btn-text {
+    float:right;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 8px 18px;
+}
+
+@media(min-width: 992px) {
+    .container-main {
+        width: 80%;
+    }
+
+    .profile-btn-holder {
+        margin-top: 50px;
+    }
+}
+
+@media(min-width: 1024) {
+    .container-main {
+        width: 60%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .container-main {
+        width: 45%;
+    }
+}
