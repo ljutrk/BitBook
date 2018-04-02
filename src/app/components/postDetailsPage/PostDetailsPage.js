@@ -50,7 +50,7 @@ class PostDetailsPage extends React.Component {
         if (postObject.type === "image") {
             return <ImagePost post={postObject} hasFooter={false} />
         } else if (postObject.type === "text") {
-            return <TextPost post={postObject} hasFooter={false} />
+            return <TextPost  post={postObject} hasFooter={false} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} hasFooter={false} />
         }
@@ -63,6 +63,7 @@ class PostDetailsPage extends React.Component {
         const comments = (this.state.comments).reverse();
         return (
             <Fragment>
+
                 {this.displayPost()}
                 <NewComment postId={this.state.postObject.id} fetchComments={this.fetchComments} />
                 {(comments.length !== 0) ? comments.map((comment, index) => {

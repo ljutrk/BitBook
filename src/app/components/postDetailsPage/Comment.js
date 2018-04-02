@@ -27,9 +27,12 @@ class Comment extends React.Component {
 
     render() {
         const { comment } = this.props;
+        console.log(this.props);
+
 
         return (
             <ul className="collection">
+                <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
                 <li className="collection-item avatar">
                     <div>
                         <img src={this.state.avatar} alt="user" className="circle" />
