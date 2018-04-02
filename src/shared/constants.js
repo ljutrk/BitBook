@@ -7,7 +7,8 @@ const url = {
     comments: "Comments?postId=",
     users: "users/",
     newComment: "Comments",
-    profile: "profile"
+    profile: "profile",
+    editProfile: "Profiles"
 }
 
 const button = {
@@ -21,6 +22,6 @@ const videoURL = {
     shared: "youtu.be/"
 }
 
-const imagePlaceholder="http://via.placeholder.com/150x150";
+const imagePlaceholder = "http://via.placeholder.com/150x150";
 
 export { url, button, videoURL, imagePlaceholder };

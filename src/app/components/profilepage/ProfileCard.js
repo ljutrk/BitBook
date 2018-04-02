@@ -11,7 +11,7 @@ const ProfileCard = (props) => {
                         <img src={isImageValid(profile.avatarUrl)} alt="profile-img" className="profile-img" />
                     </div>
                     <div className="card-content profile-text">
-                        <h3 className="card-title profile-title">{profile.Name}</h3>
+                        <h3 className="card-title profile-title">{profile.name}</h3>
                         <p>{profile.about}</p>
                         <div className="row">
                             <div className="col s12 m6 right-align">
