@@ -44,19 +44,13 @@ class PostDetailsPage extends React.Component {
         this.fetchComments()
     }
 
-    deletePost = () => {
-        const id = this.props.match.params.id;
-        postService.deletePost(id)
-            .then(() => this.props.history.push("/"))
-    }
-
     displayPost = () => {
         const postObject = this.state.postObject;
 
         if (postObject.type === "image") {
-            return <ImagePost onDeleteButtonClick={this.deletePost} post={postObject} hasFooter={false} />
+            return <ImagePost post={postObject} hasFooter={false} />
         } else if (postObject.type === "text") {
-            return <TextPost onDeleteButtonClick={this.deletePost} post={postObject} hasFooter={false} />
+            return <TextPost  post={postObject} hasFooter={false} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} hasFooter={false} />
         }

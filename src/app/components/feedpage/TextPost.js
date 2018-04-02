@@ -38,7 +38,7 @@ class TextPost extends Component {
                 <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <DeleteButton onButtonClick={onDeleteButtonClick} post={post} />
+                            <DeleteButton onButtonClick={onDeleteButtonClick} post={post} fetchMeStuff={this.props.fetchMeStuff} />
                             <Link to={`/post/text/${post.id}`}>
                                 <div className="card-content center">
                                     <p>{post.text}</p>
