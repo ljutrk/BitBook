@@ -3,18 +3,13 @@ import { Comment } from "./Comment";
 import { TextPost } from "../feedpage/TextPost";
 import { ImagePost } from "../feedpage/ImagePost";
 import { VideoPost } from "../feedpage/VideoPost";
-import { myFetchGet } from "../../../services/apiService";
-import { url } from "../../../shared/constants";
-import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
 import { postService } from "../../../services/PostService";
 import { commentService } from "../../../services/CommentService";
 
-
-
 class PostDetailsPage extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             postObject: null,
@@ -33,17 +28,17 @@ class PostDetailsPage extends React.Component {
             .then(response => {
                 this.setState({
                     comments: response
-                })
+                });
             }
-            )
+            );
     }
 
     componentDidMount() {
         this.fetchPost()
             .then(response => {
                 this.setState({ postObject: response })
-            })
-        this.fetchComments()
+            });
+        this.fetchComments();
     }
 
     displayPost = () => {
@@ -73,7 +68,7 @@ class PostDetailsPage extends React.Component {
                     return <Comment comment={newComment} key={index} />
                 }) : <div className="card no-comment-card">There are no comments yet...</div>}
             </Fragment>
-        )
+        );
     }
 }
 

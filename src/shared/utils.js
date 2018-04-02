@@ -23,7 +23,22 @@ const isImageValid = (profile) => {
     return imagePlaceholder;
 }
 
+
+const changeYoutubeLink = (inputValue) => {
+    if (inputValue.includes("watch?v=")) {
+        inputValue = inputValue.replace("watch?v=", "embed/");
+        return inputValue
+    }
+
+    if (inputValue.includes("youtu.be/")) {
+        inputValue = inputValue.replace("youtu.be/", "youtube.com/embed/");
+        return inputValue
+    }
+}
+
+
 export {
     capitalizeFirstLetter,
-    isImageValid
+    isImageValid,
+    changeYoutubeLink
 };

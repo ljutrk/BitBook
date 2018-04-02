@@ -26,5 +26,28 @@ footer {
   margin-top: 30px;
 }
 
+@media(min-width: 992px) {
+  .container-main {
+      width: 80%;
+  }
+
+  .profile-btn-holder {
+      margin-top: 50px;
+  }
+}
+
+@media(min-width: 1024) {
+  .container-main {
+      width: 60%;
+  }
+}
+
+@media(min-width: 1200px) {
+  .container-main {
+      width: 45%;
+  }
+}
+
+
 
 

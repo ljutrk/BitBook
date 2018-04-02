@@ -7,6 +7,9 @@ import { NewVideoPost } from './NewVideoPost';
 class CreatePost extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            postType: ""
+        }
     }
 
     componentDidMount() {
@@ -18,10 +21,10 @@ class CreatePost extends React.Component {
 
     }
 
-
     modalInitialization = (event) => {
 
         const postType = event.target.id;
+        this.setState({ postType })
         const Modal = document.querySelector(`#${postType}`);
         const ModalInstance = M.Modal.init(Modal, {
             dismissible: false,
@@ -30,14 +33,14 @@ class CreatePost extends React.Component {
         ModalInstance.open();
     }
 
-
     render() {
 
         return (
             <Fragment>
-                <NewTextPost fetchMeStuff={this.props.fetchMeStuff} />
-                <NewImagePost fetchMeStuff={this.props.fetchMeStuff} />
-                <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} />
+                {/* <NewPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} /> */}
+                <NewTextPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
+                <NewImagePost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
+                <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <div className="fixed-action-btn">
                     <a className="btn-floating btn-large red">
                         <i className="large material-icons">add</i>

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { url } from '../shared/constants';
 import { myFetchGet } from './apiService';
 import { Profile } from "../entities/Profile";
 import { headers } from "../shared/constants";
 
-class UserService extends Component {
+class UserService extends React.Component {
 
     fetchUsers = () => {
         const usersURL = url.baseUrl + url.users
