@@ -21,10 +21,10 @@ const PeoplePageItem = ({ user }) => {
         <div className="row">
             <ul className="collection">
                 <li className="collection-item avatar ">
-                    <img src={userPicture} alt="single-user" className="circle" />
+                    <img src={userPicture} alt="" className="circle" />
                     <span className="right">Last post <br />
                         at {getDate()}</span>
-                    <Link to={`/people/${user.id}`} className="title">{user.name}</Link>
+                    <Link to={`/users/${user.id}`} className="title">{user.name}</Link>
                     <p> {user.aboutShort}</p>
                 </li>
             </ul>
