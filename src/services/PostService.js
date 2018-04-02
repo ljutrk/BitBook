@@ -1,10 +1,11 @@
 import { Post } from "../entities/Post";
-import { myFetchGet } from "../services/apiService"
+import { myFetchGet } from "../services/apiService";
 import { Text } from "../entities/Text";
 import { Image } from "../entities/Image";
 import { Video } from "../entities/Video";
 import { url } from "../shared/constants";
 import { capitalizeFirstLetter } from "../shared/utils";
+import { headers } from "../shared/constants";
 
 class PostService {
 
@@ -28,21 +29,10 @@ class PostService {
         return myFetchGet(api)
     }
 
-    getComments = (id) => {
-        const api = url.baseUrl + url.comments + id;
-        return myFetchGet(api)
-    }
-
-
-
     deletePost = (id) => {
         const requestOptions = {
             method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Key": "bitbook",
-                "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
-            },
+            headers
         }
         const deleteURL = url.baseUrl + url.posts + "/" + id;
         return fetch(deleteURL, requestOptions)

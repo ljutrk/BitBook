@@ -8,6 +8,8 @@ import { url } from "../../../shared/constants";
 import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
 import { postService } from "../../../services/PostService";
+import { commentService } from "../../../services/CommentService";
+
 
 
 class PostDetailsPage extends React.Component {
@@ -27,7 +29,7 @@ class PostDetailsPage extends React.Component {
 
     fetchComments = () => {
         const id = this.props.match.params.id;
-        return postService.getComments(id)
+        return commentService.getComments(id)
             .then(response => {
                 this.setState({
                     comments: response
@@ -50,7 +52,7 @@ class PostDetailsPage extends React.Component {
         if (postObject.type === "image") {
             return <ImagePost post={postObject} hasFooter={false} />
         } else if (postObject.type === "text") {
-            return <TextPost  post={postObject} hasFooter={false} />
+            return <TextPost post={postObject} hasFooter={false} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} hasFooter={false} />
         }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { url } from '../shared/constants';
 import { myFetchGet } from './apiService';
 import { Profile } from "../entities/Profile";
+import { headers } from "../shared/constants";
 
 class UserService extends Component {
 
@@ -9,11 +10,7 @@ class UserService extends Component {
         const usersURL = url.baseUrl + url.users
         const requestOptions = {
             method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                "Key": "bitbook",
-                "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
-            }
+            headers
         }
 
         return fetch(usersURL, requestOptions)
@@ -21,10 +18,10 @@ class UserService extends Component {
 
     }
 
-    fetchUser =(id)=>{
-        const api = url.baseUrl + url.users+id;
+    fetchUser = (id) => {
+        const api = url.baseUrl + url.users + id;
         return myFetchGet(api)
-        .then(response=>new Profile(response))
+            .then(response => new Profile(response))
     }
 }
 
