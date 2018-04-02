@@ -1,10 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import { Link, HashRouter } from "react-router-dom";
 import { post } from './post.css';
+import DeleteButton from '../../partials/DeleteButton';
 
-const ImagePost = ({ post, hasFooter = true }) => {
 
-    const renderFooter = () => {
+class ImagePost extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    renderFooter = () => {
+        const { post } = this.props
         return (
             <div className="card-action container">
                 <span>{post.type} post</span>
@@ -13,22 +19,29 @@ const ImagePost = ({ post, hasFooter = true }) => {
         )
     }
 
-    return (
-        <Fragment>
-            <div className="card">
-                <Link to={`/post/image/${post.id}`}>
+    render() {
+
+        const { post, hasFooter = true, onDeleteButtonClick } = this.props
+
+        return (
+            < Fragment >
+                <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <div className="card-image">
-                                <img src={post.imageUrl} />
-                            </div>
+                            <DeleteButton onButtonClick={onDeleteButtonClick} post={post} />
+                            <Link to={`/post/image/${post.id}`}>
+                                <div className="card-image">
+                                    <img src={post.imageUrl} />
+                                </div>
+                            </Link>
                         </div>
                     </div>
-                </Link>
-                {(hasFooter) ? (renderFooter()) : null}
-            </div>
-        </Fragment>
-    )
+                    {(hasFooter) ? (this.renderFooter()) : null}
+                </div>
+            </Fragment >
+        )
+    }
 }
+
 
 export { ImagePost };
