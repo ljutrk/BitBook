@@ -14,8 +14,10 @@ class NewTextPost extends Component {
 
     textInputHandler = (event) => {
 
-        this.setState({ textValue: event.target.value });
-        this.setState({ isTextInputEmpty: false });
+        this.setState({
+            textValue: event.target.value,
+            isTextInputEmpty: false
+        });
 
         if (event.target.value.length === 0) {
             this.setState({ isTextInputEmpty: true });
