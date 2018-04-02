@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { url } from '../shared/constants';
+import { myFetchGet } from './apiService';
+import { Profile } from "../entities/Profile";
 
 class UserService extends Component {
 
@@ -17,6 +19,12 @@ class UserService extends Component {
         return fetch(usersURL, requestOptions)
             .then(response => response.json())
 
+    }
+
+    fetchUser =(id)=>{
+        const api = url.baseUrl + url.users+id;
+        return myFetchGet(api)
+        .then(response=>new Profile(response))
     }
 }
 

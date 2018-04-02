@@ -21,4 +21,6 @@ const videoURL = {
     shared: "youtu.be/"
 }
 
-export { url, button, videoURL };
+const imagePlaceholder="http://via.placeholder.com/150x150";
+
+export { url, button, videoURL, imagePlaceholder };

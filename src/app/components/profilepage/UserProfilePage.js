@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { profilePage } from "./profilePage.css";
-import { profileService } from "../../../services/ProfileService";
 import { ProfileCard } from "./ProfileCard";
+import { userService } from "../../../services/UserService";
 
 
-class ProfilePage extends React.Component {
+class UserProfilePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,13 +14,14 @@ class ProfilePage extends React.Component {
 
 
     componentDidMount() {
-        profileService.fetchProfile()
+        const { id }=this.props.match.params;
+        userService.fetchUser(id)
             .then(response => {
                 this.setState({ profile: response })
             })
     }
 
-  
+
     render() {
         const { profile } = this.state;
         return (
@@ -32,4 +33,4 @@ class ProfilePage extends React.Component {
 
     }
 }
-export { ProfilePage }
+export { UserProfilePage };
