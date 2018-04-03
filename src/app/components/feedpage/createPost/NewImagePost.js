@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { createNewImagePost } from '../../../../services/apiService';
 import { button } from '../../../../shared/constants';
+import { postService } from '../../../../services/PostService';
 
 class NewImagePost extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class NewImagePost extends Component {
     createNewPost = () => {
 
         if (this.state.isImageURLInputValid) {
-            createNewImagePost(this.state.imgURL)
+            postService.createNewImagePost(this.state.imgURL)
                 .then(res => {
                     this.props.fetchMeStuff()
                 });

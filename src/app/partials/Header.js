@@ -1,11 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withRouter, Link } from "react-router-dom";
 import M from 'materialize-css';
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     openSideNav = () => {
 
@@ -39,8 +36,8 @@ class Header extends React.Component {
                     <li><Link className="sidenav-close" id="profile" to="/profile">Profile</Link></li>
                 </ul>
             </header>
-
-        )
+        );
     }
 }
+
 export default withRouter(Header);

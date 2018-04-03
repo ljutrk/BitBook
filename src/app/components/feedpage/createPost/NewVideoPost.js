@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { createNewVideoPost } from '../../../../services/apiService';
 import { button, videoURL } from '../../../../shared/constants';
+import { postService } from '../../../../services/PostService';
 
 class NewVideoPost extends Component {
     constructor(props) {
@@ -16,26 +16,22 @@ class NewVideoPost extends Component {
     videoURLInputHandler = (event) => {
 
         if ((event.target.value.includes(videoURL.watch) || event.target.value.includes(videoURL.embed) || event.target.value.includes(videoURL.shared))) {
-            this.setState({ isVideoURLInputValid: true });
-            this.setState({ isError: false });
+            this.setState({ isVideoURLInputValid: true, isError: false });
         } else {
-            this.setState({ isError: true });
-            this.setState({ isVideoURLInputValid: false });
+            this.setState({ isVideoURLInputValid: false, isError: true });
         }
 
         this.setState({ videoURL: event.target.value });
 
         if (event.target.value.length === 0) {
-            this.setState({ isVideoURLInputValid: false });
-            this.setState({ isError: false });
+            this.setState({ isVideoURLInputValid: false, isError: false });
         }
     }
 
     createNewPost = (event) => {
 
         if (this.state.isVideoURLInputValid) {
-
-            createNewVideoPost(this.state.videoURL)
+            postService.createNewVideoPost(this.state.videoURL)
                 .then(res => {
                     this.props.fetchMeStuff()
                 });

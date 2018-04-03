@@ -1,6 +1,7 @@
 import React from "react";
 import { myFetchGet } from "../../../services/apiService";
 import { url } from "../../../shared/constants";
+import DeleteButton from "../../partials/DeleteButton";
 
 class Comment extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Comment extends React.Component {
 
     fetchAvatar = () => {
         const userId = this.props.comment.props.authorId;
-        const urlUser = url.baseUrl + url.user + userId;
+        const urlUser = url.baseUrl + url.users + userId;
         return myFetchGet(urlUser);
     }
 
@@ -21,18 +22,15 @@ class Comment extends React.Component {
             .then(response => this.setState({
                 avatar: response.avatarUrl,
                 name: response.name
-            }))
+            }));
 
     }
 
     render() {
         const { comment } = this.props;
-        console.log(this.props);
-
 
         return (
             <ul className="collection">
-                <a onClick={this.clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</a>
                 <li className="collection-item avatar">
                     <div>
                         <img src={this.state.avatar} alt="user" className="circle" />
