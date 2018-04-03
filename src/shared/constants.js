@@ -1,14 +1,15 @@
 const url = {
     baseUrl: "http://bitbookapi.azurewebsites.net/api/",
     posts: "Posts",
-    // imagePost: "/api/ImagePosts/",
-    // textPost: "/api/TextPosts/",
-    // videoPost: "/api/VideoPosts/",
     comments: "Comments?postId=",
     users: "users/",
     newComment: "Comments",
     profile: "profile",
-    editProfile: "Profiles"
+    editProfile: "Profiles",
+    textPosts: "TextPosts",
+    imagePosts: "ImagePosts",
+    videoPosts: "VideoPosts"
+
 }
 
 const button = {
@@ -22,6 +23,12 @@ const videoURL = {
     shared: "youtu.be/"
 }
 
+const headers = {
+    "Content-Type": "application/json",
+    "Key": "bitbook",
+    "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
+}
+
 const imagePlaceholder = "http://via.placeholder.com/150x150";
 
-export { url, button, videoURL, imagePlaceholder };
+export { url, button, videoURL, imagePlaceholder, headers };

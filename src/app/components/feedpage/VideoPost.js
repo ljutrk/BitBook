@@ -1,13 +1,8 @@
 import React, { Fragment, Component } from 'react';
-import { Link, HashRouter } from "react-router-dom";
-import { post } from './post.css';
+import { Link } from "react-router-dom";
 import DeleteButton from '../../partials/DeleteButton';
 
-
 class VideoPost extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     ifEmbededVideo = (url) => {
         const toReplace = "watch?v=";
@@ -26,18 +21,8 @@ class VideoPost extends Component {
                 <span>{post.type} post</span>
                 <Link to="/" className="right">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</Link>
             </div>
-        )
+        );
     }
-
-    // clickHandler = (event) => {
-
-    //     // this.props.fetchMeStuff()
-    //     postService.deletePost(this.props.post.id)
-    //         .then(res => {
-    //             this.props.fetchMeStuff()
-    //         })
-
-    // }
 
     render() {
 
@@ -52,7 +37,7 @@ class VideoPost extends Component {
                             <div className="card-content white-text">
                                 <Link to={`/post/video/${post.id}`}>
                                     <div className="video-container">
-                                        <iframe width="853" height="480" src={this.ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
+                                        <iframe title={post.id} width="853" height="480" src={this.ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
                                     </div>
                                 </Link>
                             </div>
@@ -61,7 +46,8 @@ class VideoPost extends Component {
                     {(hasFooter) ? (this.renderFooter()) : null}
                 </div>
             </Fragment >
-        )
+        );
     }
 }
+
 export { VideoPost };

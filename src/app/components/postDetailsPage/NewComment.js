@@ -1,6 +1,6 @@
 import React from "react";
-import { newComment } from "./newComment.css";
-import { postNewComment } from "../../../services/apiService";
+import { commentService } from "../../../services/CommentService";
+import './newComment.css'
 
 class NewComment extends React.Component {
     constructor(props) {
@@ -11,10 +11,12 @@ class NewComment extends React.Component {
     }
 
     getInputValue = event => {
+
         this.setState({ textValue: event.target.value });
     }
 
-    createNewComment = () => {
+    triggerCreateNewComment = () => {
+
         if (!this.state.textValue) {
             return;
         }
@@ -22,12 +24,11 @@ class NewComment extends React.Component {
         const { postId, fetchComments } = this.props;
         const value = this.state.textValue;
 
-        postNewComment(value, postId)
+        commentService.createNewComment(value, postId)
             .then(() => {
                 this.setState({ textValue: "" });
                 fetchComments()
             });
-
     }
 
     render() {
@@ -37,11 +38,11 @@ class NewComment extends React.Component {
                 <form className="col s12">
                     <div className="row">
                         <textarea id="textarea1" className="materialize-textarea col s11" onChange={this.getInputValue} value={this.state.textValue} placeholder="Add your comment..."></textarea>
-                        <a className={`${(!this.state.textValue) ? `btn col s1 #2196f3 blue disabled` : "btn col s1 #2196f3 blue"}`} id="button-send" onClick={this.createNewComment}>Send</a>
+                        <a className={`${(!this.state.textValue) ? `btn col s1 #2196f3 blue disabled` : "btn col s1 #2196f3 blue"}`} id="button-send" onClick={this.triggerCreateNewComment}>Send</a>
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }
 

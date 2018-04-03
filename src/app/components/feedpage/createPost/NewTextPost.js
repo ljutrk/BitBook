@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { createNewTextPost } from '../../../../services/apiService';
 import { button } from '../../../../shared/constants';
+import { postService } from '../../../../services/PostService';
 
 class NewTextPost extends Component {
     constructor(props) {
@@ -14,17 +14,19 @@ class NewTextPost extends Component {
 
     textInputHandler = (event) => {
 
-        this.setState({ textValue: event.target.value });
-        this.setState({ isTextInputEmpty: false });
+        this.setState({
+            textValue: event.target.value,
+            isTextInputEmpty: false
+        });
 
         if (event.target.value.length === 0) {
             this.setState({ isTextInputEmpty: true });
         }
     }
 
-    createNewPost = () => {
+    createPost = () => {
         if (!this.state.isTextInputEmpty) {
-            createNewTextPost(this.state.textValue)
+            postService.createNewTextPost(this.state.textValue)
                 .then(res => {
                     this.props.fetchMeStuff();
                 });
@@ -39,9 +41,10 @@ class NewTextPost extends Component {
                     <Link to="/" className="modal-action modal-close waves-effect waves-green btn-flat right">X</Link>
                     <h4>New Post</h4>
                     <input onChange={this.textInputHandler} value={this.state.textValue} type='text' placeholder='Write your text post here' />
+                    {this.state.isError ? this.errorMessage() : ""}
                 </div>
                 <div className="modal-footer">
-                    <Link to="/" onClick={this.createNewPost} className={this.state.isTextInputEmpty ? button.disabled : button.active}>POST</Link>
+                    <Link to="/" onClick={this.createPost} className={this.state.isTextInputEmpty ? button.disabled : button.active}>POST</Link>
                 </div>
             </div>
         );

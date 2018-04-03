@@ -1,10 +1,8 @@
 import React, { Fragment } from "react";
-import M from 'materialize-css';
 import { url } from "../../../shared/constants";
 import { postService } from "../../../services/PostService";
 import { PostFeedItem } from "./PostFeedItem";
 import { CreatePost } from "./createPost/CreatePost";
-
 
 class FeedPage extends React.Component {
     constructor(props) {
@@ -15,26 +13,9 @@ class FeedPage extends React.Component {
         }
     }
 
-    componentWillMount() {
-
-        this.fetchMeStuff();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        // console.log("this.props", this.props);
-        // console.log("nextProps", this.nextProps);
-
-
-        this.fetchMeStuff();
-
-
-    }
-
     componentDidMount() {
-        console.log(this.props);
         this.fetchMeStuff();
     }
-
 
     fetchMeStuff = () => {
 

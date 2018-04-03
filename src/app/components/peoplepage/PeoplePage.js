@@ -22,7 +22,7 @@ class PeoplePage extends Component {
     }
 
     searchHandler = (event) => {
-        const searchedUsers = this.state.users.filter(user => (user.name).toLowerCase().includes(event.target.value));
+        const searchedUsers = this.state.users.filter(user => (user.name).toLowerCase().includes((event.target.value).toLowerCase()));
         this.setState({ searchValue: event.target.value });
         this.setState({ filteredUsers: searchedUsers });
     }

@@ -7,6 +7,9 @@ import { NewVideoPost } from './NewVideoPost';
 class CreatePost extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            postType: ""
+        }
     }
 
     componentDidMount() {
@@ -18,54 +21,33 @@ class CreatePost extends React.Component {
 
     }
 
-    textModalInitialization = (event) => {
+    modalInitialization = (event) => {
 
-        const textModal = document.querySelector(`#${event.target.id}`);
-        const textModalInstance = M.Modal.init(textModal, {
+        const postType = event.target.id;
+        this.setState({ postType })
+        const Modal = document.querySelector(`#${postType}`);
+        const ModalInstance = M.Modal.init(Modal, {
             dismissible: false,
         });
 
-        textModalInstance.open();
+        ModalInstance.open();
     }
-
-    imageModalInitialization = (event) => {
-
-        const imageModal = document.querySelector(`#${event.target.id}`);
-        const imageModalInstance = M.Modal.init(imageModal, {
-            dismissible: false,
-        });
-
-        imageModalInstance.open();
-
-    }
-
-    videoModalInitialization = (event) => {
-
-        const videoModal = document.querySelector(`#${event.target.id}`);
-        const videoModalInstance = M.Modal.init(videoModal, {
-            dismissible: false,
-        });
-
-        videoModalInstance.open();
-    }
-
-
 
     render() {
 
         return (
             <Fragment>
-                <NewTextPost fetchMeStuff={this.props.fetchMeStuff} />
-                <NewImagePost fetchMeStuff={this.props.fetchMeStuff} />
-                <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} />
+                <NewTextPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
+                <NewImagePost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
+                <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <div className="fixed-action-btn">
                     <a className="btn-floating btn-large red">
                         <i className="large material-icons">add</i>
                     </a>
                     <ul>
-                        <li><a className="btn-floating blue" onClick={this.textModalInitialization}><i id="text" className="material-icons">short_text</i></a></li>
-                        <li><a className="btn-floating green" onClick={this.imageModalInitialization}><i id="image" className="material-icons">image</i></a></li>
-                        <li><a className="btn-floating red" onClick={this.videoModalInitialization}><i id="video" className="material-icons">videocam</i></a></li>
+                        <li><a className="btn-floating blue" onClick={this.modalInitialization}><i id="text" className="material-icons">short_text</i></a></li>
+                        <li><a className="btn-floating green" onClick={this.modalInitialization}><i id="image" className="material-icons">image</i></a></li>
+                        <li><a className="btn-floating red" onClick={this.modalInitialization}><i id="video" className="material-icons">videocam</i></a></li>
                     </ul>
                 </div>
             </Fragment>

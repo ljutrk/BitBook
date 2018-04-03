@@ -3,16 +3,13 @@ import { Comment } from "./Comment";
 import { TextPost } from "../feedpage/TextPost";
 import { ImagePost } from "../feedpage/ImagePost";
 import { VideoPost } from "../feedpage/VideoPost";
-import { myFetchGet } from "../../../services/apiService";
-import { url } from "../../../shared/constants";
-import { PostComment } from "../../../entities/PostComment";
 import { NewComment } from "./NewComment";
 import { postService } from "../../../services/PostService";
-
+import { commentService } from "../../../services/CommentService";
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             postObject: null,
@@ -27,21 +24,21 @@ class PostDetailsPage extends React.Component {
 
     fetchComments = () => {
         const id = this.props.match.params.id;
-        return postService.getComments(id)
+        return commentService.getComments(id)
             .then(response => {
                 this.setState({
                     comments: response
-                })
+                });
             }
-            )
+            );
     }
 
     componentDidMount() {
         this.fetchPost()
             .then(response => {
                 this.setState({ postObject: response })
-            })
-        this.fetchComments()
+            });
+        this.fetchComments();
     }
 
     displayPost = () => {
@@ -50,7 +47,7 @@ class PostDetailsPage extends React.Component {
         if (postObject.type === "image") {
             return <ImagePost post={postObject} hasFooter={false} />
         } else if (postObject.type === "text") {
-            return <TextPost  post={postObject} hasFooter={false} />
+            return <TextPost post={postObject} hasFooter={false} />
         } else if (postObject.type === "video") {
             return <VideoPost post={postObject} hasFooter={false} />
         }
@@ -71,7 +68,7 @@ class PostDetailsPage extends React.Component {
                     return <Comment comment={newComment} key={index} />
                 }) : <div className="card no-comment-card">There are no comments yet...</div>}
             </Fragment>
-        )
+        );
     }
 }
 

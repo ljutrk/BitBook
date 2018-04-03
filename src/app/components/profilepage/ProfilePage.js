@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import { profilePage } from "./profilePage.css";
 import { profileService } from "../../../services/ProfileService";
 import { ProfileCard } from "./ProfileCard";
 import { UpdateProfile } from "./UpdateProfile";
 import { myFetchPUT } from "../../../services/apiService";
+import './profilePage.css';
 
 
 class ProfilePage extends React.Component {
@@ -18,7 +18,7 @@ class ProfilePage extends React.Component {
         profileService.fetchProfile()
             .then(response => {
                 this.setState({ profile: response })
-            })
+            });
     }
 
     updateProfile = (text, image, name) => {
@@ -37,10 +37,10 @@ class ProfilePage extends React.Component {
                             <ProfileCard profile={profile} />
                         </Fragment>
                     )}
+                {/* {(!profile) ? <h1>...</h1> : < ProfileCard profile={profile} />} */}
             </Fragment>
-
-        )
-
+        );
     }
 }
+
 export { ProfilePage }

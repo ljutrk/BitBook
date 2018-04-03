@@ -2,12 +2,8 @@ import React from "react";
 import { VideoPost } from "./VideoPost";
 import { ImagePost } from "./ImagePost";
 import { TextPost } from "./TextPost";
-import { postTypes } from "../../../shared/postTypes";
 
 class PostFeedItem extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     renderPostByType = (post) => {
         if (post.isText()) {
