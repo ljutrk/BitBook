@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { profileService } from "../../../services/ProfileService";
 import { ProfileCard } from "./ProfileCard";
+import './profilePage.css';
+
 
 class ProfilePage extends React.Component {
     constructor(props) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { commentService } from "../../../services/CommentService";
+import './newComment.css'
 
 class NewComment extends React.Component {
     constructor(props) {
