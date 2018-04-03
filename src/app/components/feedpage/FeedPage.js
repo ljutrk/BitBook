@@ -17,7 +17,6 @@ class FeedPage extends React.Component {
         this.fetchMeStuff();
     }
 
-
     fetchMeStuff = () => {
 
         postService.getPosts(url.baseUrl + url.posts)

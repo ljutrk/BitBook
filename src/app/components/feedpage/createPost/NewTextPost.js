@@ -34,7 +34,6 @@ class NewTextPost extends Component {
     }
 
     render() {
-        // console.log(this.props.postType);
 
         return (
             <div id="text" className="modal">

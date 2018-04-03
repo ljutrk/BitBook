@@ -37,7 +37,6 @@ class CreatePost extends React.Component {
 
         return (
             <Fragment>
-                {/* <NewPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} /> */}
                 <NewTextPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <NewImagePost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
