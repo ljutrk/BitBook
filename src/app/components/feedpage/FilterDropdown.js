@@ -27,9 +27,8 @@ class FilterDropdown extends React.Component {
     render() {
         return (
             <Fragment>
-                <div className="filter-feed-holder">
-                    <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Filter Posts</button>
-                </div>
+                <button id="dropdown" className='dropdown-trigger btn dropdown-filter' data-target='filterDropdown'>Filter posts</button>
+
                 <ul id='filterDropdown' className='dropdown-content'>
                     <li className="dropdown-items" id="text" onClick={this.clickHandler}>Text Posts</li>
                     <li className="dropdown-items" id="image" onClick={this.clickHandler}>Image Posts</li>

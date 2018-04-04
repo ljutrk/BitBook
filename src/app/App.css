@@ -42,37 +42,30 @@ footer {
 .card .card-image {
     margin-top: 30px;
 }
+
 .card .card-image{
   padding: 24px;
 }
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
   color: #777777 !important;
 }
+
 p{
   color:#111;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
 }
 
-
-.dropdown-items { 
-  text-align: center;
-  padding-top: 14px;
-  padding-left: 15px;
-}
-.filter-feed-holder{
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-    top: 5px;
-    text-align: center;
-    padding-bottom: 10px;
-    margin-top: 4px;
-} 
-
-.filter-feed-holder #dropdown{
+.dropdown-trigger.btn.dropdown-filter{
+  position: absolute;
+  z-index: 10;
   width: 100%;
-}
+  top: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-top: 4px;
+} 
 
 @media(min-width: 768px){
   .container-main {
@@ -88,7 +81,7 @@ p{
   .profile-btn-holder {
       margin-top: 50px;
   }
-  .filter-feed-holder{
+  .dropdown-trigger.btn.dropdown-filter{
     position: absolute;
     top: 10px;
   }
@@ -108,6 +101,7 @@ p{
       padding-top: 3%;
   }
 }
+
 
 
 
