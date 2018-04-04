@@ -7,7 +7,7 @@ class NewImagePost extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgURL: "",
+            inputValue: "",
             isImageURLInputValid: false,
             isError: false
         }
@@ -16,25 +16,22 @@ class NewImagePost extends Component {
     imgURLInputHandler = (event) => {
 
         if (event.target.value.includes(".jpg") || event.target.value.includes(".jpeg") || event.target.value.includes(".png") || event.target.value.includes(".gif") || event.target.value.includes(".svg")) {
-            this.setState({ isImageURLInputValid: true });
-            this.setState({ isError: false });
+            this.setState({ isImageURLInputValid: true, isError: false });
         } else {
-            this.setState({ isError: true });
-            this.setState({ isImageURLInputValid: false });
+            this.setState({ isError: true, isImageURLInputValid: false });
         }
 
-        this.setState({ imgURL: event.target.value });
+        this.setState({ inputValue: event.target.value });
 
         if (event.target.value.length === 0) {
-            this.setState({ isImageURLInputValid: false });
-            this.setState({ isError: false });
+            this.setState({ isImageURLInputValid: false, isError: false });
         }
     }
 
     createNewPost = () => {
 
         if (this.state.isImageURLInputValid) {
-            postService.createNewImagePost(this.state.imgURL)
+            postService.createNewImagePost(this.state.inputValue)
                 .then(res => {
                     this.props.fetchMeStuff()
                 });
@@ -46,14 +43,18 @@ class NewImagePost extends Component {
         return <p className="error"> Please enter valid image link! </p>
     }
 
+    resetCreateNewPostForm = () => {
+        this.setState({ inputValue: "", isTextInputEmpty: true, isError: false });
+    }
+
     render() {
 
         return (
             <div id="image" className="modal">
                 <div className="modal-content">
-                    <Link to="/" className="modal-action modal-close waves-effect waves-green btn-flat right">X</Link>
+                    <div onClick={this.resetCreateNewPostForm} className="modal-action modal-close waves-effect waves-green btn-flat right">X</div>
                     <h4>New Image</h4>
-                    <input onChange={this.imgURLInputHandler} value={this.state.imgURL} type='text' placeholder='Write your image URL here' />
+                    <input onChange={this.imgURLInputHandler} value={this.state.inputValue} type='text' placeholder='Write your image URL here' />
                     {this.state.isError ? this.errorMessage() : ""}
                 </div>
                 <div className="modal-footer">

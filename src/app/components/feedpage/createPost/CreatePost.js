@@ -27,7 +27,7 @@ class CreatePost extends React.Component {
         this.setState({ postType })
         const Modal = document.querySelector(`#${postType}`);
         const ModalInstance = M.Modal.init(Modal, {
-            dismissible: false,
+            dismissible: false
         });
 
         ModalInstance.open();
