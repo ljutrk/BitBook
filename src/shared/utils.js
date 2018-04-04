@@ -36,7 +36,6 @@ const changeYoutubeLink = (inputValue) => {
     }
 }
 
-
 export {
     capitalizeFirstLetter,
     isImageValid,

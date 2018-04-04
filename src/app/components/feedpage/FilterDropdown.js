@@ -29,7 +29,7 @@ class FilterDropdown extends React.Component {
             <Fragment>
                 <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Drop Me!</button>
 
-                <ul id='filterDropdown' class='dropdown-content'>
+                <ul id='filterDropdown' className='dropdown-content'>
                     <li id="text" onClick={this.clickHandler}>Text Posts</li>
                     <li id="image" onClick={this.clickHandler}>Image Posts</li>
                     <li id="video" onClick={this.clickHandler}>Video Posts</li>

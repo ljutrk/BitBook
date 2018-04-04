@@ -7,7 +7,7 @@ class NewVideoPost extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            videoURL: "",
+            inputValue: "",
             isVideoURLInputValid: false,
             isError: false
         }
@@ -21,7 +21,7 @@ class NewVideoPost extends Component {
             this.setState({ isVideoURLInputValid: false, isError: true });
         }
 
-        this.setState({ videoURL: event.target.value });
+        this.setState({ inputValue: event.target.value });
 
         if (event.target.value.length === 0) {
             this.setState({ isVideoURLInputValid: false, isError: false });
@@ -31,7 +31,7 @@ class NewVideoPost extends Component {
     createNewPost = (event) => {
 
         if (this.state.isVideoURLInputValid) {
-            postService.createNewVideoPost(this.state.videoURL)
+            postService.createNewVideoPost(this.state.inputValue)
                 .then(res => {
                     this.props.fetchMeStuff()
                 });
@@ -43,15 +43,19 @@ class NewVideoPost extends Component {
         return <p className="error"> Please enter valid YouTube link! </p>
     }
 
+    resetCreateNewPostForm = () => {
+        this.setState({ inputValue: "", isTextInputEmpty: true, isError: false });
+    }
+
     render() {
 
         return (
             <div id="video" className="modal">
                 <div className="modal-content">
-                    <Link to="/" className="modal-action modal-close waves-effect waves-green btn-flat right">X</Link>
+                    <div onClick={this.resetCreateNewPostForm} className="modal-action modal-close waves-effect waves-green btn-flat right">X</div>
                     <h4>New Video</h4>
                     <div className="input-field col s12">
-                        <input onChange={this.videoURLInputHandler} value={this.state.videoURL} type="text" placeholder="Please enter YouTube link" />
+                        <input onChange={this.videoURLInputHandler} value={this.state.inputValue} type="text" placeholder="Please enter YouTube link" />
                         {this.state.isError ? this.errorMessage() : ""}
                     </div>
                 </div>

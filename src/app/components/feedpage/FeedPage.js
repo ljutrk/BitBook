@@ -46,8 +46,8 @@ class FeedPage extends React.Component {
 
         return (
             <Fragment>
-                <FilterDropdown filterPosts={this.filterPosts} fetchMeStuff={this.fetchMeStuff} />
                 <CreatePost fetchMeStuff={this.fetchMeStuff} />
+                <FilterDropdown filterPosts={this.filterPosts} fetchMeStuff={this.fetchMeStuff} />
                 <PostFeedItem postList={posts} fetchMeStuff={this.fetchMeStuff} />
             </Fragment>
         );
