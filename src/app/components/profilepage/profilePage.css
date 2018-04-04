@@ -51,6 +51,10 @@
     width:100%
 }
 
+.add-photo {
+    margin-top: 45px;
+}
+
 @media(min-width: 992px) {
     .container-main {
         width: 80%;

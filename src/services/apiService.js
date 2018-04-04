@@ -25,11 +25,7 @@ const myFetchPUT = (text, image, name, email, aboutShort) => {
     const api = url.baseUrl + url.editProfile;
     const requestOptions = {
         method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Key": "bitbook",
-            "SessionId": "7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94"
-        },
+        headers,
         body: JSON.stringify({
             about: text,
             avatarUrl: image,
@@ -39,7 +35,7 @@ const myFetchPUT = (text, image, name, email, aboutShort) => {
         })
     }
     return fetch(api, requestOptions)
-        .then(response => { if (response.status === 204) console.log("hooray") });
+        .then(response => response)
 }
 
 export { myFetchGet, myFetchPost, myFetchPUT };

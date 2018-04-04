@@ -14,16 +14,23 @@ class ProfilePage extends React.Component {
         }
     }
 
-    componentDidMount() {
-        profileService.fetchProfile()
+    updateProfilePage = () => {
+        return profileService.fetchProfile()
             .then(response => {
                 this.setState({ profile: response })
             });
     }
 
+    componentDidMount() {
+        this.updateProfilePage()
+    }
+
     updateProfile = (text, image, name) => {
         const { profile } = this.state;
         return myFetchPUT(text, image, name, profile.email, profile.aboutShort)
+            .then(response => {
+                this.updateProfilePage()
+            })
     }
 
     render() {

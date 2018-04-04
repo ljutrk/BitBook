@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 import { isImageValid } from "../../../shared/utils";
 import { imagePlaceholder } from "../../../shared/constants";
+import { profileService } from "../../../services/ProfileService";
 
 class UpdateProfile extends React.Component {
     constructor(props) {
@@ -50,15 +51,47 @@ class UpdateProfile extends React.Component {
         }
     }
 
+    fetchCurrentProfile = () => {
+        return profileService.fetchProfile()
+            .then(response => {
+                this.setState({
+                    name: response.name,
+                    text: response.about,
+                    img: response.avatarUrl
+                })
+            })
+    }
+
+    isUpdateValid = () => {
+        if (this.isInputNameValid() || this.isInputTextValid()) {
+            return true
+        }
+        return false
+    }
+
+    isInputNameValid = () => {
+        const name = this.state.name;
+        if (!name || name.length > 30) {
+            return true
+        }
+        return false
+    }
+
+    isInputTextValid = () => {
+        const text = this.state.text;
+        if (!text) {
+            return true
+        }
+        return false
+    }
+
     render() {
         const { updateProfile } = this.props;
-
         return (
             <Fragment>
-                <a className="waves-effect waves-light btn modal-trigger" onClick={this.initProfileModal}>Modal</a>
+                <a className="waves-effect waves-light btn modal-trigger" onClick={this.initProfileModal}>Edit profile</a>
                 <div id="profileModal" className="modal modal-fixed-footer">
                     <div className="modal-content">
-                        <button className="modal-action modal-close waves-effect waves-green btn-flat right">X</button>
                         <h4>Update profile</h4>
                         <div className="row">
                             <div className="col s12 m4">
@@ -67,18 +100,28 @@ class UpdateProfile extends React.Component {
                             <div className="col s12 m8">
                                 <h6>Name</h6>
                                 <input type="text" onChange={this.getProfileNameInput} value={this.state.name} placeholder="Full Name" />
-                                <span className="align-right"></span>
-                                <h6>Add Your Photo</h6>
+                                {this.isInputNameValid()
+                                    ? (<div className="error">
+                                        <span className="left">Max character: 30</span>
+                                        <span className="right">{this.state.name.length}/30</span>
+                                    </div>)
+                                    : ""}
+                                <h6 className="add-photo">Add Your Photo</h6>
                                 <input type="text" onChange={this.getProfileImgInput} value={this.state.img} placeholder="photo url" />
                             </div>
                         </div>
                         <div className="col s12">
                             <input type="text" onChange={this.getProfileTextInput} value={this.state.text} placeholder="User description" />
+                            {this.isInputTextValid()
+                                ? <p className="error">Add description</p>
+                                : ""}
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button className="modal-action modal-close waves-effect waves-green btn-flat ">Close</button>
-                        <button className="modal-action modal-close waves-effect waves-green btn-flat " onClick={this.setChanges}>Update</button>
+                        <button className="btn modal-action modal-close waves-effect" onClick={this.fetchCurrentProfile} >Close</button>
+                        <button className={`${(this.isUpdateValid())
+                            ? "btn modal-action modal-close waves-effect disabled"
+                            : "btn modal-action modal-close waves-effect"}`} onClick={this.setChanges}>Update</button>
                     </div>
                 </div>
             </Fragment>
