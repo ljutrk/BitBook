@@ -4,14 +4,12 @@ import M from 'materialize-css';
 class FilterDropdown extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
+        this.instance = null
     }
 
     componentDidMount() {
-        const filterDropdown = document.querySelector('#dropdown');
-        M.Dropdown.init(filterDropdown);
+        // const filterDropdown = document.querySelector('#dropdown');
+        // this.instance = M.Dropdown.init(filterDropdown);
     }
 
     clickHandler = (event) => {
@@ -24,11 +22,18 @@ class FilterDropdown extends React.Component {
 
     }
 
+    componentWillUnmount() {
+        if (!this.instance) {
+            this.instance.destroy()
+        }
+    }
+
     render() {
         return (
             <Fragment>
-                <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Drop Me!</button>
-
+                <div className="filter-feed-holder">
+                    <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Filter Posts</button>
+                </div>
                 <ul id='filterDropdown' className='dropdown-content'>
                     <li id="text" onClick={this.clickHandler}>Text Posts</li>
                     <li id="image" onClick={this.clickHandler}>Image Posts</li>
