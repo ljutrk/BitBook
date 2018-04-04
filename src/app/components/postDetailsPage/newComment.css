@@ -6,3 +6,13 @@
 .no-comment-card {
     padding: 20px;
 }
+
+#textarea1 {
+    background-color: #fff;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+}
+
+.no-padding {
+    padding: 0;
+}

@@ -95,5 +95,6 @@ p {
 @media(min-width: 1200px) {
     .container-main {
         width: 45%;
+        padding-top: 5%;
     }
 }
