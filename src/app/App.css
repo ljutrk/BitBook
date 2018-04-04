@@ -57,6 +57,12 @@ p{
   letter-spacing: 0.5px;
 }
 
+.dropdown-items { 
+  text-align: center;
+  padding-top: 14px;
+  padding-left: 15px;
+}
+
 .dropdown-trigger.btn.dropdown-filter{
   position: absolute;
   z-index: 10;
@@ -66,6 +72,10 @@ p{
   padding-bottom: 10px;
   margin-top: 4px;
 } 
+
+.btn, .btn-large, .btn-small {
+  background-color: #039be5 !important;
+}
 
 @media(min-width: 768px){
   .container-main {
