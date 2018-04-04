@@ -89,7 +89,7 @@ class UpdateProfile extends React.Component {
         const { updateProfile } = this.props;
         return (
             <Fragment>
-                <a className="waves-effect waves-light btn modal-trigger" onClick={this.initProfileModal}>Modal</a>
+                <a className="waves-effect waves-light btn modal-trigger" onClick={this.initProfileModal}>Edit profile</a>
                 <div id="profileModal" className="modal modal-fixed-footer">
                     <div className="modal-content">
                         <h4>Update profile</h4>
