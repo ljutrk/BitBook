@@ -62,10 +62,31 @@ class UpdateProfile extends React.Component {
             })
     }
 
+    isUpdateValid = () => {
+        if (this.isInputNameValid() || this.isInputTextValid()) {
+            return true
+        }
+        return false
+    }
+
+    isInputNameValid = () => {
+        const name = this.state.name;
+        if (!name || name.length > 30) {
+            return true
+        }
+        return false
+    }
+
+    isInputTextValid = () => {
+        const text = this.state.text;
+        if (!text) {
+            return true
+        }
+        return false
+    }
 
     render() {
         const { updateProfile } = this.props;
-
         return (
             <Fragment>
                 <a className="waves-effect waves-light btn modal-trigger" onClick={this.initProfileModal}>Modal</a>
@@ -79,24 +100,28 @@ class UpdateProfile extends React.Component {
                             <div className="col s12 m8">
                                 <h6>Name</h6>
                                 <input type="text" onChange={this.getProfileNameInput} value={this.state.name} placeholder="Full Name" />
-                                {(this.state.name.length > 30)
-                                    ? <div className="error">
+                                {this.isInputNameValid()
+                                    ? (<div className="error">
                                         <span className="left">Max character: 30</span>
                                         <span className="right">{this.state.name.length}/30</span>
-                                    </div> : ""}
+                                    </div>)
+                                    : ""}
                                 <h6 className="add-photo">Add Your Photo</h6>
                                 <input type="text" onChange={this.getProfileImgInput} value={this.state.img} placeholder="photo url" />
                             </div>
                         </div>
                         <div className="col s12">
                             <input type="text" onChange={this.getProfileTextInput} value={this.state.text} placeholder="User description" />
+                            {this.isInputTextValid()
+                                ? <p className="error">Add description</p>
+                                : ""}
                         </div>
                     </div>
                     <div className="modal-footer">
                         <button className="btn modal-action modal-close waves-effect" onClick={this.fetchCurrentProfile} >Close</button>
-                        <button className={this.state.name.length > 30
-                            ? "disabled btn modal-action modal-close waves-effect"
-                            : "btn modal-action modal-close waves-effect"} onClick={this.setChanges}>Update</button>
+                        <button className={`${(this.isUpdateValid())
+                            ? "btn modal-action modal-close waves-effect disabled"
+                            : "btn modal-action modal-close waves-effect"}`} onClick={this.setChanges}>Update</button>
                     </div>
                 </div>
             </Fragment>
