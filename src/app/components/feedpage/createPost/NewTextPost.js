@@ -7,17 +7,14 @@ class NewTextPost extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            textValue: "",
+            inputValue: "",
             isTextInputEmpty: true
         }
     }
 
     textInputHandler = (event) => {
 
-        this.setState({
-            textValue: event.target.value,
-            isTextInputEmpty: false
-        });
+        this.setState({ inputValue: event.target.value, isTextInputEmpty: false });
 
         if (event.target.value.length === 0) {
             this.setState({ isTextInputEmpty: true });
@@ -26,11 +23,17 @@ class NewTextPost extends Component {
 
     createPost = () => {
         if (!this.state.isTextInputEmpty) {
-            postService.createNewTextPost(this.state.textValue)
+            postService.createNewTextPost(this.state.inputValue)
                 .then(res => {
                     this.props.fetchMeStuff();
                 });
+            this.resetCreateNewPostForm();
         }
+
+    }
+
+    resetCreateNewPostForm = () => {
+        this.setState({ inputValue: "", isTextInputEmpty: true });
     }
 
     render() {
@@ -38,9 +41,9 @@ class NewTextPost extends Component {
         return (
             <div id="text" className="modal">
                 <div className="modal-content">
-                    <Link to="/" className="modal-action modal-close waves-effect waves-green btn-flat right">X</Link>
+                    <div onClick={this.resetCreateNewPostForm} className="modal-action modal-close waves-effect waves-green btn-flat right">X</div>
                     <h4>New Post</h4>
-                    <input onChange={this.textInputHandler} value={this.state.textValue} type='text' placeholder='Write your text post here' />
+                    <input onChange={this.textInputHandler} value={this.state.inputValue} type='text' placeholder='Write your text post here' />
                     {this.state.isError ? this.errorMessage() : ""}
                 </div>
                 <div className="modal-footer">

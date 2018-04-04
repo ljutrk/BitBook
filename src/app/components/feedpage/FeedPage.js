@@ -3,6 +3,7 @@ import { url } from "../../../shared/constants";
 import { postService } from "../../../services/PostService";
 import { PostFeedItem } from "./PostFeedItem";
 import { CreatePost } from "./createPost/CreatePost";
+import { FilterDropdown } from './FilterDropdown';
 
 class FeedPage extends React.Component {
     constructor(props) {
@@ -28,6 +29,14 @@ class FeedPage extends React.Component {
             });
     }
 
+    filterPosts = (eventTargetID) => {
+        postService.getPosts(url.baseUrl + url.posts)
+            .then(posts => posts.filter(post => post.type === eventTargetID))
+            .then(filteredPosts => {
+                this.setState({ posts: filteredPosts })
+            })
+    }
+
     render() {
 
         if (!this.state.posts.length) {
@@ -38,6 +47,7 @@ class FeedPage extends React.Component {
         return (
             <Fragment>
                 <CreatePost fetchMeStuff={this.fetchMeStuff} />
+                <FilterDropdown filterPosts={this.filterPosts} fetchMeStuff={this.fetchMeStuff} />
                 <PostFeedItem postList={posts} fetchMeStuff={this.fetchMeStuff} />
             </Fragment>
         );
