@@ -27,13 +27,14 @@ class FilterDropdown extends React.Component {
     render() {
         return (
             <Fragment>
-                <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Drop Me!</button>
-
+                <div className="filter-feed-holder">
+                    <button id="dropdown" className='dropdown-trigger btn' data-target='filterDropdown'>Filter Posts</button>
+                </div>
                 <ul id='filterDropdown' className='dropdown-content'>
-                    <li id="text" onClick={this.clickHandler}>Text Posts</li>
-                    <li id="image" onClick={this.clickHandler}>Image Posts</li>
-                    <li id="video" onClick={this.clickHandler}>Video Posts</li>
-                    <li id="all" onClick={this.clickHandler}>All Posts</li>
+                    <li className="dropdown-items" id="text" onClick={this.clickHandler}>Text Posts</li>
+                    <li className="dropdown-items" id="image" onClick={this.clickHandler}>Image Posts</li>
+                    <li className="dropdown-items" id="video" onClick={this.clickHandler}>Video Posts</li>
+                    <li className="dropdown-items" id="all" onClick={this.clickHandler}>All Posts</li>
                 </ul>
             </Fragment>
 

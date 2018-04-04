@@ -14,7 +14,7 @@ const DeleteButton = (props) => {
             })
 
     }
-    return <div onClick={clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</div>
+    return <div onClick={clickHandler} className="right waves-effect waves-light btn delete-post">X</div>
 };
 
 export default withRouter(DeleteButton);
