@@ -1,6 +1,7 @@
 import React from 'react';
 import { postService } from '../../services/PostService';
 import { withRouter } from 'react-router-dom';
+import "./deleteButton.css";
 
 const DeleteButton = (props) => {
 
@@ -15,7 +16,7 @@ const DeleteButton = (props) => {
             })
 
     }
-    return <div onClick={clickHandler} className="right waves-effect waves-light btn #1e88e5 blue darken-1">X</div>
+    return <div onClick={clickHandler} className="right waves-effect waves-light btn btn delete-post">X</div>
 };
 
 export default withRouter(DeleteButton);

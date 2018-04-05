@@ -37,8 +37,12 @@ class NewComment extends React.Component {
             <div className="row">
                 <form className="col s12">
                     <div className="row">
-                        <textarea id="textarea1" className="materialize-textarea col s11" onChange={this.getInputValue} value={this.state.textValue} placeholder="Add your comment..."></textarea>
-                        <a className={`${(!this.state.textValue) ? `btn col s1 #2196f3 blue disabled` : "btn col s1 #2196f3 blue"}`} id="button-send" onClick={this.triggerCreateNewComment}>Send</a>
+                        <div className="col s9 m10 no-padding">
+                            <textarea id="textarea1" className="materialize-textarea col s11" onChange={this.getInputValue} value={this.state.textValue} placeholder="Add your comment..."></textarea>
+                        </div>
+                        <div className="col s3 m2 right-align no-padding">
+                            <a className={`${(!this.state.textValue) ? `btn #2196f3 blue disabled` : "btn #2196f3 blue"}`} id="button-send" onClick={this.triggerCreateNewComment}>Send</a>
+                        </div>
                     </div>
                 </form>
             </div>

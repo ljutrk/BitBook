@@ -1,0 +1,23 @@
+.container-main {
+    width: 95%;
+}
+.searchMargin {
+    margin-top: 20px;
+}
+@media(min-width: 768px){
+}
+@media(min-width: 992px) {
+    .container-main {
+        width: 80%;
+   }
+}
+@media(min-width: 1024) {
+    .container-main {
+        width: 60%;
+   }
+}
+@media(min-width: 1200px) {
+    .container-main {
+        width: 45%;
+   }
+}

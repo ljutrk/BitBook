@@ -7,7 +7,7 @@ const ProfileCard = (props) => {
         <div className="row">
             <div className="col s12">
                 <div className="card profile">
-                    <div className="card-image">
+                    <div className="card-image profile-img-holder">
                         <img src={isImageValid(profile.avatarUrl)} alt="profile-img" className="profile-img" />
                     </div>
                     <div className="card-content profile-text">

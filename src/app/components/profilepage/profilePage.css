@@ -1,24 +1,32 @@
+.container-main {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
 .card.profile {
     box-shadow: none;
     -webkit-box-shadow: 0;
 }
-
+.card-image.profile-img-holder {
+    padding-top: 30px;
+}
 .card .card-image img.profile-img {
     width: 35%;
     margin: 0 auto;
     border-radius: 50%;
+    border: 1px solid #6BBAEC;
+    padding: 10px;
 }
-
 .card .card-content .card-title.profile-title {
     margin: 30px 0;
     position: static;
-    color: #111;
+    font-weight: bold;
+    color: #6BBAEC;
 }
-
 .card-content.profile-text {
     text-align: center;
+    padding-top: 0 !important;
 }
-
 .profile-btn-holder {
     text-align: center;
     padding: 0;
@@ -27,52 +35,76 @@
 }
 .profile-btn {
     display:inline-block;
-    background-color: #555;
+    background-color: transparent;
     color: #fff;
     border-radius: 20px;
+    border: 1px solid #ddd;
+    color: #222;
 }
-    
 .profile-counter-holder {
     box-sizing: border-box;
     float: left;
     padding: 8px 18px;
     height: 100%;
-    background-color: #888;
+    background-color: #6BBAEC;
     border-radius: 20px;
+    color: #fff;
 }
-
 .profile-btn-text {
     float:right;
     height: 100%;
     box-sizing: border-box;
     padding: 8px 18px;
 }
-#uploadImg{
-    width:100%
+#uploadImg {
+    width:100% 
 }
-
 .add-photo {
     margin-top: 45px;
 }
-
+p {
+    color:#111;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+.waves-effect.waves-light.btn.modal-trigger.dropdown-filter {
+    position: relative;
+    margin: 20px 0;
+    z-index: 10;
+    width: 100%;
+    background-color: #6BBAEC;
+}
+.modal-footer .btn.modal-action.modal-close.waves-effect {
+    background-color: #6BBAEC;
+    margin-left: 10px;
+}
+@media(min-width: 768px){
+    .container-main {
+        padding-top: 20px;
+   }
+}
 @media(min-width: 992px) {
     .container-main {
         width: 80%;
-    }
-
+   }
     .profile-btn-holder {
         margin-top: 50px;
-    }
+   }
 }
-
-@media(min-width: 1024) {
+@media(min-width: 1024px) {
     .container-main {
         width: 60%;
-    }
+   }
+    .waves-effect.waves-light.btn.modal-trigger.dropdown-filter {
+        position: absolute;
+        top: 7px;
+        left: calc(100% + 15px);
+        z-index: 10;
+        width: 150px;
+   }
 }
-
 @media(min-width: 1200px) {
     .container-main {
         width: 45%;
-    }
+   }
 }

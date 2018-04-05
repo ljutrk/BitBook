@@ -1,16 +1,24 @@
 .container-main {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
+  position: relative;
 }
 
 .error {
   color: red;
 }
 
+.nav-extended,
+footer {
+  background-color: #6BBAEC;
+}
+
 #root {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #efefef;
+  font-family: 'Quicksand', sans-serif;
 }
 
 main {
@@ -21,41 +29,3 @@ footer {
   padding: 20px 0;
   color: #fff;
 }
-
-.searchMargin {
-  margin-top: 30px;
-}
-
-@media(min-width: 992px) {
-  .container-main {
-      width: 80%;
-  }
-
-  .profile-btn-holder {
-      margin-top: 50px;
-  }
-}
-
-@media(min-width: 1024) {
-  .container-main {
-      width: 60%;
-  }
-}
-
-@media(min-width: 1200px) {
-  .container-main {
-      width: 45%;
-  }
-}
-
-.tab {
-  width: 50%;
-}
-
-.topM20px {
- margin-top: 20px;
-}
-
-
-
-

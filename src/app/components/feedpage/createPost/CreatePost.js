@@ -3,6 +3,7 @@ import M from 'materialize-css';
 import { NewTextPost } from './NewTextPost';
 import { NewImagePost } from './NewImagePost';
 import { NewVideoPost } from './NewVideoPost';
+import "./createPost.css";
 
 class CreatePost extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class CreatePost extends React.Component {
                 <NewImagePost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <div className="fixed-action-btn">
-                    <a className="btn-floating btn-large red">
+                    <a id="main-create-post" className="btn-floating btn-large blue">
                         <i className="large material-icons">add</i>
                     </a>
                     <ul>
