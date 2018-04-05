@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import M from 'materialize-css';
+import "./filterDropdown.css";
 
 class FilterDropdown extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class FilterDropdown extends React.Component {
     render() {
         return (
             <Fragment>
-                <button id="dropdown" className='dropdown-trigger btn dropdown-filter' data-target='filterDropdown'>Filter posts</button>
+                <button id="dropdown" className='dropdown-trigger btn dropdown-filter' data-target='filterDropdown'><i id="filter-icon" className="material-icons">filter_list</i>Filter posts</button>
 
                 <ul id='filterDropdown' className='dropdown-content'>
                     <li className="dropdown-items" id="text" onClick={this.clickHandler}>Text Posts</li>

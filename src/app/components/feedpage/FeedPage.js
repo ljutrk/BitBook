@@ -4,6 +4,7 @@ import { postService } from "../../../services/PostService";
 import { PostFeedItem } from "./PostFeedItem";
 import { CreatePost } from "./createPost/CreatePost";
 import { FilterDropdown } from './FilterDropdown';
+import "./feedPage.css";
 
 class FeedPage extends React.Component {
     constructor(props) {

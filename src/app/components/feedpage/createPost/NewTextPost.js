@@ -27,8 +27,8 @@ class NewTextPost extends Component {
                 .then(res => {
                     this.props.fetchMeStuff();
                 });
-            this.resetCreateNewPostForm();
         }
+        this.resetCreateNewPostForm();
 
     }
 

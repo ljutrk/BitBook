@@ -18,7 +18,7 @@ class Header extends React.Component {
 
         return (
             <header>
-                <nav className="nav-extended #039be5 light-blue darken-1">
+                <nav className="nav-extended">
                     <div className="nav-wrapper container">
                         <Link to='/' className="brand-logo">BitBook</Link>
                         <a onClick={this.openSideNav} data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>

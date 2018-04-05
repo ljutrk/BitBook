@@ -1,6 +1,7 @@
 import React from 'react';
 import { postService } from '../../services/PostService';
 import { withRouter } from 'react-router-dom';
+import "./deleteButton.css";
 
 const DeleteButton = (props) => {
 
@@ -9,6 +10,7 @@ const DeleteButton = (props) => {
             .then(res => {
                 if (props.history.location.pathname === "/") {
                     props.fetchMeStuff()
+                    return
                 }
                 props.history.push("/")
             })
