@@ -1,0 +1,58 @@
+.container-main {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
+.error {
+    color: red;
+}
+p {
+    color:#111;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+.dropdown-content .dropdown-items {
+    line-height: 2.5;
+    text-align: center;
+}
+.dropdown-trigger.btn.dropdown-filter {
+    position: relative;
+    margin: 20px 0;
+    z-index: 10;
+    width: 100%;
+    background-color: #6BBAEC;
+}
+.container-main .card .card-content,
+.container-main .card .card-image {
+    padding: 10% 5% 5%;
+}
+@media(min-width: 768px){
+    .container-main {
+        padding-top: 7%;
+   }
+}
+@media(min-width: 992px) {
+    .container-main {
+        width: 80%;
+   }
+    .profile-btn-holder {
+        margin-top: 50px;
+   }
+}
+@media(min-width: 1024px) {
+    .container-main {
+        width: 60%;
+   }
+    .dropdown-trigger.btn.dropdown-filter {
+        position: absolute;
+        top: 7px;
+        left: calc(100% + 15px);
+        z-index: 10;
+        width: 150px;
+   }
+}
+@media(min-width: 1200px) {
+    .container-main {
+        width: 45%;
+   }
+}

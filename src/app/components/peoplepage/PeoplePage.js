@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { PeoplePageItem } from './PeoplePageItem';
 import { userService } from '../../../services/UserService';
-
+import "./peoplePage.css";
 class PeoplePage extends Component {
     constructor(props) {
         super(props);
@@ -31,7 +31,7 @@ class PeoplePage extends Component {
         return (
             <Fragment>
                 <div className="row searchMargin">
-                    <nav className="#42a5f5 blue lighten-1 hoverable">
+                    <nav className="#42a5f5 white lighten-1 hoverable">
                         <div className="nav-wrapper">
                             <div className="input-field">
                                 <input onChange={this.searchHandler} value={this.state.searchValue} id="search" type="search" placeholder="Search" required />

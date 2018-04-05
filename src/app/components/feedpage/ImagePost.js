@@ -16,14 +16,14 @@ class ImagePost extends Component {
 
     render() {
 
-        const { post, hasFooter = true, onDeleteButtonClick } = this.props
+        const { post, hasFooter = true, fetchMeStuff } = this.props
 
         return (
             < Fragment >
                 <div className="card">
                     <div className="row">
                         <div className="col s12">
-                            <DeleteButton onButtonClick={onDeleteButtonClick} post={post} />
+                            <DeleteButton fetchMeStuff={fetchMeStuff} post={post} />
                             <Link to={`/post/image/${post.id}`}>
                                 <div className="card-image">
                                     <img src={post.imageUrl} alt="imagePost" />

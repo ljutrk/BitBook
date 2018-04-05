@@ -36,6 +36,7 @@ class NewVideoPost extends Component {
                     this.props.fetchMeStuff()
                 });
         }
+        this.resetCreateNewPostForm();
     }
 
     errorMessage = () => {

@@ -34,13 +34,13 @@ class VideoPost extends Component {
                     <div className="row">
                         <div className="col s12">
                             <DeleteButton fetchMeStuff={fetchMeStuff} post={post} />
-                            <div className="card-content white-text">
-                                <Link to={`/post/video/${post.id}`}>
+                            <Link to={`/post/video/${post.id}`}>
+                                <div className="card-content white-text">
                                     <div className="video-container">
                                         <iframe title={post.id} width="853" height="480" src={this.ifEmbededVideo(post.videoUrl)} frameBorder="0" allowFullScreen></iframe>
                                     </div>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                     {(hasFooter) ? (this.renderFooter()) : null}

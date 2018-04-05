@@ -4,6 +4,7 @@ import M from "materialize-css";
 import { isImageValid } from "../../../shared/utils";
 import { imagePlaceholder } from "../../../shared/constants";
 import { profileService } from "../../../services/ProfileService";
+import "./updateProfile.css";
 
 class UpdateProfile extends React.Component {
     constructor(props) {
@@ -89,7 +90,7 @@ class UpdateProfile extends React.Component {
         const { updateProfile } = this.props;
         return (
             <Fragment>
-                <a className="waves-effect waves-light btn modal-trigger dropdown-filter" onClick={this.initProfileModal}>Edit profile</a>
+                <a className="waves-effect waves-light btn modal-trigger dropdown-filter" onClick={this.initProfileModal}><i id="profile-icon" className="material-icons">brush</i>Edit profile</a>
                 <div id="profileModal" className="modal modal-fixed-footer">
                     <div className="modal-content">
                         <h4>Update profile</h4>
