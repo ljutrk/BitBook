@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import DeleteButton from '../../partials/DeleteButton';
 import M from "materialize-css";
 import { commentService } from "../../../services/CommentService";
-import { PostComment } from "../../../entities/PostComment";
 
 class ImagePost extends Component {
     constructor(props) {
@@ -24,7 +23,7 @@ class ImagePost extends Component {
 
     expandOnClick = () => {
         const elem = this.imgCommentsDropdown;
-        const instance = M.Collapsible.init(elem);
+        M.Collapsible.init(elem);
         this.fetchDropdownComments()
 
     }
@@ -36,9 +35,12 @@ class ImagePost extends Component {
             <div className="card-action">
                 <ul ref={ul => this.imgCommentsDropdown = ul} className="listing-comments collapsible" onClick={this.expandOnClick} >
                     <li>
-                        <div className="collapsible-header">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</div>
-                        {comments.map((comment, key) => {
-                            return <div key={key} className="collapsible-body"><span>{comment.body}</span></div>
+                        <div className="collapsible-header">{(post.commentsNum === 0) ? "No " : post.commentsNum} comments</div>
+                        {comments.map((comment) => {
+                            return <div key={comment.id} className="collapsible-body">
+                                <span className="dropdown-comment-user-name">{comment.authorName}:</span>
+                                <span>{comment.body}</span>
+                            </div>
                         })}
                     </li>
                 </ul>

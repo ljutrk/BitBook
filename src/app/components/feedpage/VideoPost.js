@@ -23,7 +23,7 @@ class VideoPost extends Component {
 
     expandOnClick = () => {
         const elem = this.videoCommentsDropdown;
-        const instance = M.Collapsible.init(elem);
+        M.Collapsible.init(elem);
         this.fetchDropdownComments()
 
     }
@@ -40,12 +40,19 @@ class VideoPost extends Component {
 
     renderFooter = () => {
         const { post } = this.props;
+        const { comments } = this.state
+
         return (
             <div className="card-action">
                 <ul ref={ul => this.videoCommentsDropdown = ul} className="listing-comments collapsible" onClick={this.expandOnClick} >
                     <li>
                         <div className="collapsible-header">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</div>
-                        <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        {comments.map((comment) => {
+                            return <div key={comment.id} className="collapsible-body">
+                                <span className="dropdown-comment-user-name">{comment.authorName}:</span>
+                                <span>{comment.body}</span>
+                            </div>
+                        })}
                     </li>
                 </ul>
             </div>
