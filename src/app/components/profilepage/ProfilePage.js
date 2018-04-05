@@ -45,7 +45,6 @@ class ProfilePage extends React.Component {
                             <ProfileCard profile={profile} />
                         </Fragment>
                     )}
-                {/* {(!profile) ? <h1>...</h1> : < ProfileCard profile={profile} />} */}
             </Fragment>
         );
     }
