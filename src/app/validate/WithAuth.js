@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { userService } from "../../service/UserService";
+import { isAuthenticated } from "../../services/AuthenticationService";
 
-export default Component =>
+export default ComposedComponent =>
     class Auth extends Component {
         componentDidMount = () => {
-            if (!userService.isAuthenticated()) this.props.history.push("/");
+            if (!isAuthenticated()) this.props.history.push("/login");
         };
 
         render() {
-            return <Component {...this.props} />;
+            return <ComposedComponent {...this.props} />;
         }
     };

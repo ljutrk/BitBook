@@ -1,19 +1,24 @@
 import { checkIfObjectsAreEqual } from '../shared/utils';
 
-const login = (data) => {
-    const user = this.users.find(user => {
-        if (checkIfObjectsAreEqual(data, user)) return user;
-    });
-
-    if (user) localStorage.setItem("user", JSON.stringify(user));
+const login = (loginData) => {
+    fetch("http://bitbookapi.azurewebsites.net/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Key": "64C2396"
+        },
+        body: JSON.stringify(loginData)
+    })
+        .then(user => user.json())
+        .then(user => localStorage.setItem("SessionId", user.sessionId))
 }
 
 const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("SessionId");
 }
 
 const isAuthenticated = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    return localStorage.getItem("SessionId");
 }
 
 export { login, logout, isAuthenticated }

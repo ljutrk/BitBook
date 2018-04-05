@@ -4,7 +4,7 @@ class LoginItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
+            username: "",
             password: ""
         }
     }
@@ -12,7 +12,7 @@ class LoginItem extends Component {
 
 
     changeEmailHandler = (event) => {
-        this.setState({ email: event.target.value })
+        this.setState({ username: event.target.value })
     }
 
     changePassHandler = (event) => {
@@ -21,7 +21,7 @@ class LoginItem extends Component {
 
     clickHandler = () => {
         const inputUser = {
-            email: this.state.email,
+            username: this.state.username,
             password: this.state.password
         }
         this.props.loginHandler(inputUser)
@@ -30,8 +30,8 @@ class LoginItem extends Component {
     render() {
 
         return (
-            <div className="topM20px">
-                <input onChange={this.changeEmailHandler} value={this.state.email} type="text" placeholder="Email" />
+            <div>
+                <input onChange={this.changeEmailHandler} value={this.state.username} type="text" placeholder="Username" />
                 <input onChange={this.changePassHandler} value={this.state.pass} type="password" placeholder="Password" />
                 <button onClick={this.clickHandler} className="btn right blue white-text topM20px">Login</button>
             </div>

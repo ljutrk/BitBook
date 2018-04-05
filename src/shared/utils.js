@@ -36,20 +36,8 @@ const changeYoutubeLink = (inputValue) => {
     }
 }
 
-const checkIfObjectsAreEqual = (object, objectToCompare) => {
-    const objectCredentials = {
-        email: objectToCompare.username,
-        password: objectToCompare.password
-    };
-
-    const jsonOne = JSON.stringify(object);
-    const jsonTwo = JSON.stringify(objectCredentials);
-
-    return jsonOne === jsonTwo;
-}
 export {
     capitalizeFirstLetter,
     isImageValid,
     changeYoutubeLink,
-    checkIfObjectsAreEqual
 };

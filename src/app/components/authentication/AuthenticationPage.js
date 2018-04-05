@@ -11,26 +11,24 @@ class AuthenticationPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            // users: [],
             login: true
         }
     }
 
     componentDidMount() {
 
-        userService.fetchUsers()
-            .then(users => {
-                this.setState({ users });
-            });
+        // userService.fetchUsers()
+        //     .then(users => {
+        //         this.setState({ users });
+        //     });
 
         const tab = document.querySelector('.tabs')
         M.Tabs.init(tab);
     }
 
     loginHandler = (inputUser) => {
-        login(inputUser)
-        // console.log(this.state.users);
-
+        login(inputUser);
     }
 
     loginClick = () => {
@@ -39,7 +37,6 @@ class AuthenticationPage extends React.Component {
 
     registerClick = () => {
         this.setState({ login: false })
-
     }
 
     render() {
@@ -55,7 +52,7 @@ class AuthenticationPage extends React.Component {
                                     <div class="col s12">
                                         <ul class="tabs">
                                             <li class="tab"><a onClick={this.loginClick} class="active" href="#test1">Login</a></li>
-                                            <li class="tab"><a onClick={this.registerclick} href="#test2">Register</a></li>
+                                            <li class="tab"><a onClick={this.registerClick} href="#test2">Register</a></li>
                                         </ul>
                                     </div>
                                     <div id="test1" class="col s12"><LoginItem loginHandler={this.loginHandler} /></div>

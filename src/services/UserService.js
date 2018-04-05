@@ -3,6 +3,7 @@ import { url } from '../shared/constants';
 import { myFetchGet } from './apiService';
 import { Profile } from "../entities/Profile";
 import { headers } from "../shared/constants";
+import { getHeaders } from '../shared/utils';
 
 class UserService extends React.Component {
 
@@ -10,7 +11,10 @@ class UserService extends React.Component {
         const usersURL = url.baseUrl + url.users
         const requestOptions = {
             method: 'GET',
-            headers
+            headers: {
+                ...headers,
+                "SessionId": localStorage.getItem("SessionId")
+            },
         }
 
         return fetch(usersURL, requestOptions)

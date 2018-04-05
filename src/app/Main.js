@@ -6,8 +6,8 @@ import { ProfilePage } from './components/profilepage/ProfilePage';
 import { PostDetailsPage } from "../app/components/postDetailsPage/PostDetailsPage";
 import { UserProfilePage } from "./components/profilepage/UserProfilePage";
 import { AuthenticationPage } from './components/authentication/AuthenticationPage';
-// import WithoutAuth from './validate/WithoutAuth';
-// import WithAuth from './validate/WithAuth';
+import WithoutAuth from './validate/WithoutAuth';
+import WithAuth from './validate/WithAuth';
 
 class Main extends Component {
 
@@ -15,12 +15,12 @@ class Main extends Component {
         return (
             <main className="container-main">
                 <Switch>
-                    <Route exact path='/login' component={AuthenticationPage} />
-                    <Route path='/post/:type/:id' component={PostDetailsPage} />
-                    <Route path='/users/:id' component={UserProfilePage} />
-                    <Route path='/people' component={PeoplePage} />
-                    <Route path='/profile' component={ProfilePage} />
-                    <Route path='/' component={FeedPage} />
+                    <Route exact path='/login' component={WithoutAuth(AuthenticationPage)} />
+                    <Route path='/post/:type/:id' component={WithAuth(PostDetailsPage)} />
+                    <Route path='/users/:id' component={WithAuth(UserProfilePage)} />
+                    <Route path='/people' component={WithAuth(PeoplePage)} />
+                    <Route path='/profile' component={WithAuth(ProfilePage)} />
+                    <Route path='/' component={WithAuth(FeedPage)} />
                 </Switch>
             </main>
         );
