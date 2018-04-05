@@ -36,6 +36,7 @@ class NewImagePost extends Component {
                     this.props.fetchMeStuff()
                 });
         }
+        this.resetCreateNewPostForm();
     }
 
     errorMessage = () => {

@@ -9,6 +9,7 @@ const DeleteButton = (props) => {
             .then(res => {
                 if (props.history.location.pathname === "/") {
                     props.fetchMeStuff()
+                    return
                 }
                 props.history.push("/")
             })
