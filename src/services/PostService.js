@@ -31,7 +31,10 @@ class PostService {
     deletePost = (id) => {
         const requestOptions = {
             method: 'DELETE',
-            headers
+            headers: {
+                ...headers,
+                "SessionId": localStorage.getItem("SessionId")
+            }
         }
         const deleteURL = url.baseUrl + url.posts + "/" + id;
 

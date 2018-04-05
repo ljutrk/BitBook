@@ -1,0 +1,18 @@
+import React from 'react';
+
+const RegisterDescriptionItem = () => {
+    return (
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">BitBook Register</span>
+                    <p>REGISTER!!!! <br />
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem modi accusantium rem unde! Hic illo exercitationem numquam consequuntur, sint est repudiandae quod earum fugiat ipsa iure reiciendis eaque beatae quisquam.Exercitationem modi accusantium rem unde! Hic illo exercitationem numquam consequuntur, sint est repudiandae quod earum fugiat ipsa iure reiciendis eaque beatae quisquam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export { RegisterDescriptionItem };

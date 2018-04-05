@@ -26,7 +26,6 @@ const videoURL = {
 const headers = {
     "Content-Type": "application/json",
     "Key": "64C2396",
-    "SessionId": "4db20912-1481-4725-aa79-d41c5769ddce"
 }
 
 const imagePlaceholder = "http://via.placeholder.com/150x150";

@@ -1,10 +1,15 @@
 import { url } from "../shared/constants";
 import { headers } from '../shared/constants';
+import { getHeaders } from "../shared/utils";
 
 const myFetchGet = (url) => {
-    const requestOptions = {
+
+    let requestOptions = {
         method: 'GET',
-        headers
+        headers: {
+            ...headers,
+            "SessionId": localStorage.getItem("SessionId")
+        }
     }
 
     return fetch(url, requestOptions)
@@ -15,7 +20,10 @@ const myFetchGet = (url) => {
 const myFetchPost = (endpoint, body) => {
     const requestOptions = {
         method: 'POST',
-        headers,
+        headers: {
+            ...headers,
+            "SessionId": localStorage.getItem("SessionId")
+        },
         body: JSON.stringify(body),
     }
 
@@ -26,7 +34,10 @@ const myFetchPUT = (text, image, name, email, aboutShort) => {
     const api = url.baseUrl + url.editProfile;
     const requestOptions = {
         method: 'PUT',
-        headers,
+        headers: {
+            ...headers,
+            "SessionId": localStorage.getItem("SessionId")
+        },
         body: JSON.stringify({
             about: text,
             avatarUrl: image,
