@@ -41,7 +41,7 @@ class CreatePost extends React.Component {
                 <NewImagePost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <NewVideoPost fetchMeStuff={this.props.fetchMeStuff} postType={this.state.postType} />
                 <div className="fixed-action-btn">
-                    <a className="btn-floating btn-large red">
+                    <a className="btn-floating btn-large blue">
                         <i className="large material-icons">add</i>
                     </a>
                     <ul>
