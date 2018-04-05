@@ -42,7 +42,12 @@ class FeedPage extends React.Component {
     render() {
 
         if (!this.state.posts.length) {
-            return <Loader />
+            return (
+                <Fragment>
+                    <Loader />
+                    <CreatePost fetchMeStuff={this.fetchMeStuff} />
+                </Fragment>
+            )
         }
         const posts = this.state.posts;
 
