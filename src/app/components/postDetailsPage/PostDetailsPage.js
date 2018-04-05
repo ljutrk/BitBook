@@ -6,6 +6,7 @@ import { VideoPost } from "../feedpage/VideoPost";
 import { NewComment } from "./NewComment";
 import { postService } from "../../../services/PostService";
 import { commentService } from "../../../services/CommentService";
+import { Loader } from "../../partials/Loader";
 
 class PostDetailsPage extends React.Component {
     constructor(props) {
@@ -55,7 +56,7 @@ class PostDetailsPage extends React.Component {
 
     render() {
         if (!this.state.postObject) {
-            return <h1>...</h1>
+            return <Loader />
         }
         const comments = (this.state.comments).reverse();
         return (

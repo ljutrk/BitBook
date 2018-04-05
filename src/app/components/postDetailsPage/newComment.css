@@ -16,3 +16,22 @@
 .no-padding {
     padding: 0;
 }
+
+.collapsible-header {
+    justify-content: center;
+    font-weight: bold;
+}
+
+.collapsible-header:focus {
+    outline: none 0;
+}
+
+.listing-comments.collapsible {
+    box-shadow: 0;
+    -webkit-box-shadow: 0;
+}
+.dropdown-comment-user-name{
+    margin-right: 10px;
+    font-weight: bold;
+    color: #6BBAEC;
+}

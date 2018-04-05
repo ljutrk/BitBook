@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { PeoplePageItem } from './PeoplePageItem';
 import { userService } from '../../../services/UserService';
 import "./peoplePage.css";
+import { Loader } from "../../partials/Loader";
 class PeoplePage extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +29,8 @@ class PeoplePage extends Component {
     }
 
     render() {
+
+        if (!this.state.filteredUsers.length) { return <Loader /> }
         return (
             <Fragment>
                 <div className="row searchMargin">
@@ -43,7 +46,6 @@ class PeoplePage extends Component {
                     </nav>
                 </div>
                 {this.state.filteredUsers.map(user => <PeoplePageItem user={user} key={user.id} />)}
-
             </Fragment>
         );
     }
