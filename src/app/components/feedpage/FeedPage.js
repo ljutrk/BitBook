@@ -6,6 +6,7 @@ import { CreatePost } from "./createPost/CreatePost";
 import { FilterDropdown } from './FilterDropdown';
 import "./feedPage.css";
 import { isAuthenticated } from "../../../services/AuthenticationService";
+import { Loader } from "../../partials/Loader";
 
 class FeedPage extends React.Component {
     constructor(props) {
@@ -52,7 +53,12 @@ class FeedPage extends React.Component {
     render() {
 
         if (!this.state.posts.length) {
-            return <h1>loading...</h1>
+            return (
+                <Fragment>
+                    <Loader />
+                    <CreatePost fetchMeStuff={this.fetchMeStuff} />
+                </Fragment>
+            )
         }
         const posts = this.state.posts;
 

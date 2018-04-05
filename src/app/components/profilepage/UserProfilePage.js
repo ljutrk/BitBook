@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { ProfileCard } from "./ProfileCard";
 import { userService } from "../../../services/UserService";
+import { Loader } from "../../partials/Loader";
 
 class UserProfilePage extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class UserProfilePage extends React.Component {
         const { profile } = this.state;
         return (
             <Fragment>
-                {(!profile) ? <h1>...</h1> : < ProfileCard profile={profile} />}
+                {(!profile) ? <Loader /> : < ProfileCard profile={profile} />}
             </Fragment>
         );
     }
