@@ -1,7 +1,6 @@
 import React from "react";
 import { myFetchGet } from "../../../services/apiService";
 import { url } from "../../../shared/constants";
-import DeleteButton from "../../partials/DeleteButton";
 
 class Comment extends React.Component {
     constructor(props) {

@@ -4,6 +4,7 @@ import { ProfileCard } from "./ProfileCard";
 import { UpdateProfile } from "./UpdateProfile";
 import { myFetchPUT } from "../../../services/apiService";
 import './profilePage.css';
+import { Loader } from "../../partials/Loader";
 
 
 class ProfilePage extends React.Component {
@@ -37,14 +38,13 @@ class ProfilePage extends React.Component {
         const { profile } = this.state;
         return (
             <Fragment>
-                {(!profile) ? <h1>...</h1> :
+                {(!profile) ? <Loader /> :
                     (
                         <Fragment>
                             <UpdateProfile profile={profile} updateProfile={this.updateProfile} />
                             <ProfileCard profile={profile} />
                         </Fragment>
                     )}
-                {/* {(!profile) ? <h1>...</h1> : < ProfileCard profile={profile} />} */}
             </Fragment>
         );
     }

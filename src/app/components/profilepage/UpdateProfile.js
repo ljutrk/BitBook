@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import M from "materialize-css";
-import { isImageValid } from "../../../shared/utils";
 import { imagePlaceholder } from "../../../shared/constants";
 import { profileService } from "../../../services/ProfileService";
 import "./updateProfile.css";
@@ -87,7 +85,6 @@ class UpdateProfile extends React.Component {
     }
 
     render() {
-        const { updateProfile } = this.props;
         return (
             <Fragment>
                 <a className="waves-effect waves-light btn modal-trigger dropdown-filter" onClick={this.initProfileModal}><i id="profile-icon" className="material-icons">brush</i>Edit profile</a>
@@ -96,7 +93,7 @@ class UpdateProfile extends React.Component {
                         <h4>Update profile</h4>
                         <div className="row">
                             <div className="col s12 m4">
-                                <img src={(this.state.img) ? this.state.img : imagePlaceholder} alt="profile-photo" id="uploadImg" />
+                                <img src={(this.state.img) ? this.state.img : imagePlaceholder} alt="profile-display" id="uploadImg" />
                             </div>
                             <div className="col s12 m8">
                                 <h6>Name</h6>

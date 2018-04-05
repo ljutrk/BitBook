@@ -9,6 +9,7 @@ const myFetchGet = (url) => {
 
     return fetch(url, requestOptions)
         .then(response => response.json())
+        .catch(error => alert("Sorry, failed to load data"))
 }
 
 const myFetchPost = (endpoint, body) => {
