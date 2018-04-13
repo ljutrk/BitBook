@@ -29,7 +29,7 @@ const myFetchPost = (endpoint, body) => {
     return fetch(url.baseUrl + endpoint, requestOptions);
 }
 
-const myFetchPUT = (text, image, name, email, aboutShort) => {
+const myFetchPUT = (changeProfileData) => {
     const api = url.baseUrl + url.editProfile;
     const requestOptions = {
         method: 'PUT',
@@ -37,13 +37,7 @@ const myFetchPUT = (text, image, name, email, aboutShort) => {
             ...headers,
             "SessionId": localStorage.getItem("SessionId")
         },
-        body: JSON.stringify({
-            about: text,
-            avatarUrl: image,
-            name: name,
-            email: email,
-            aboutShort: aboutShort
-        })
+        body: JSON.stringify(changeProfileData)
     }
     return fetch(api, requestOptions)
         .then(response => response)

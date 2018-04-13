@@ -28,7 +28,15 @@ class ProfilePage extends React.Component {
 
     updateProfile = (text, image, name) => {
         const { profile } = this.state;
-        return myFetchPUT(text, image, name, profile.email, profile.aboutShort)
+        const changeProfileData = {
+            about: text,
+            avatarUrl: image,
+            name: name,
+            email: profile.email,
+            aboutShort: profile.aboutShort
+        } 
+
+        return myFetchPUT(changeProfileData)
             .then(response => {
                 this.updateProfilePage()
             })

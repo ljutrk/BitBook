@@ -12,8 +12,13 @@ class TextPost extends Component {
         }
     }
 
+    componentDidMount() {
+        const elem = this.textCommentsDropdown;
+        M.Collapsible.init(elem);
+    }
+
     fetchDropdownComments = () => {
-        return commentService.getComments(this.props.post.id)
+        commentService.getComments(this.props.post.id)
             .then(response => {
                 this.setState({
                     comments: response
@@ -22,8 +27,6 @@ class TextPost extends Component {
     }
 
     expandOnClick = () => {
-        const elem = this.textCommentsDropdown;
-        M.Collapsible.init(elem);
         this.fetchDropdownComments()
     }
 
@@ -33,15 +36,17 @@ class TextPost extends Component {
 
         return (
             <div className="card-action">
-                <ul ref={ul => this.textCommentsDropdown = ul} className="listing-comments collapsible" onClick={this.expandOnClick} >
+                <ul ref={ul => this.textCommentsDropdown = ul} className="listing-comments collapsible"  >
                     <li>
-                        <div className="collapsible-header">{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</div>
-                        {comments.map((comment) => {
-                            return <div key={comment.id} className="collapsible-body">
-                                <span className="dropdown-comment-user-name">{comment.authorName}:</span>
-                                <span>{comment.body}</span>
-                            </div>
-                        })}
+                        <div className="collapsible-header" onClick={this.expandOnClick}>{(post.commentsNum === 0) ? "No " : post.commentsNum} Comments</div>
+                        <div className="collapsible-body">
+                            {comments.map((comment) => {
+                                return <div key={comment.id}>
+                                    <span className="dropdown-comment-user-name">{comment.authorName}:</span>
+                                    <span>{comment.body}</span>
+                                </div>
+                            })}
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -3,7 +3,7 @@ import M from 'materialize-css';
 import { LoginItem } from './LoginItem';
 import { RegisterItem } from './RegisterItem';
 import { LoginDescriptionItem } from './LoginDescriptionItem';
-import { login } from '../../../services/AuthenticationService';
+import { login, register } from '../../../services/AuthenticationService';
 import { RegisterDescriptionItem } from './RegisterDescriptionItem';
 import { withRouter } from "react-router-dom";
 
@@ -23,9 +23,14 @@ class AuthenticationPage extends React.Component {
 
     loginHandler = (inputUser) => {
         login(inputUser)
-            .then( () => {
-                this.props.history.push("/")  
+            .then(() => {
+                this.props.history.push("/")
             })
+    }
+
+    registerHandler = (inputUser) => {
+        register(inputUser)
+        this.props.history.push("/login")
     }
 
     loginClick = () => {
@@ -54,7 +59,7 @@ class AuthenticationPage extends React.Component {
                                         </ul>
                                     </div>
                                     <div id="test1" class="col s12"><LoginItem loginHandler={this.loginHandler} /></div>
-                                    <div id="test2" class="col s12"><RegisterItem /></div>
+                                    <div id="test2" class="col s12"><RegisterItem registerHandler={this.registerHandler} /></div>
                                 </div>
                             </div>
                         </div>

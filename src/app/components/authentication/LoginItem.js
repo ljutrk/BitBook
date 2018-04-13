@@ -9,7 +9,7 @@ class LoginItem extends Component {
         }
     }
 
-    changeEmailHandler = (event) => {
+    changeUsernameHandler = (event) => {
         this.setState({ username: event.target.value })
     }
 
@@ -29,7 +29,7 @@ class LoginItem extends Component {
 
         return (
             <div>
-                <input onChange={this.changeEmailHandler} value={this.state.username} type="text" placeholder="Username" />
+                <input onChange={this.changeUsernameHandler} value={this.state.username} type="text" placeholder="Username" />
                 <input onChange={this.changePassHandler} value={this.state.pass} type="password" placeholder="Password" />
                 <button onClick={this.clickHandler} className="btn right blue white-text topM20px">Login</button>
             </div>

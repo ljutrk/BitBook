@@ -12,6 +12,11 @@ class ImagePost extends Component {
         }
     }
 
+    componentDidMount() {
+        const elem = this.imgCommentsDropdown;
+        M.Collapsible.init(elem);
+    }
+
     fetchDropdownComments = () => {
         return commentService.getComments(this.props.post.id)
             .then(response => {
@@ -22,11 +27,10 @@ class ImagePost extends Component {
     }
 
     expandOnClick = () => {
-        const elem = this.imgCommentsDropdown;
-        M.Collapsible.init(elem);
         this.fetchDropdownComments()
 
     }
+    
     renderFooter = () => {
         const { post } = this.props
         const { comments } = this.state
@@ -36,12 +40,14 @@ class ImagePost extends Component {
                 <ul ref={ul => this.imgCommentsDropdown = ul} className="listing-comments collapsible" onClick={this.expandOnClick} >
                     <li>
                         <div className="collapsible-header">{(post.commentsNum === 0) ? "No " : post.commentsNum} comments</div>
-                        {comments.map((comment) => {
-                            return <div key={comment.id} className="collapsible-body">
-                                <span className="dropdown-comment-user-name">{comment.authorName}:</span>
-                                <span>{comment.body}</span>
-                            </div>
-                        })}
+                        <div className="collapsible-body">
+                            {comments.map((comment) => {
+                                return <div key={comment.id}>
+                                    <span className="dropdown-comment-user-name">{comment.authorName}:</span>
+                                    <span>{comment.body}</span>
+                                </div>
+                            })}
+                        </div>
                     </li>
                 </ul>
             </div>
