@@ -12,7 +12,6 @@ class FeedPage extends React.Component {
         super(props);
         this.state = {
             posts: [],
-            postCreated: false
         }
     }
 
@@ -23,11 +22,8 @@ class FeedPage extends React.Component {
     fetchMeStuff = () => {
 
         postService.getPosts(url.baseUrl + url.posts)
-            .then(postList => {
-                this.setState({
-                    posts: postList,
-                    postCreated: !this.state.postCreated
-                });
+            .then(posts => {
+                this.setState({ posts });
             });
     }
 
@@ -42,20 +38,14 @@ class FeedPage extends React.Component {
     render() {
 
         if (!this.state.posts.length) {
-            return (
-                <Fragment>
-                    <Loader />
-                    <CreatePost fetchMeStuff={this.fetchMeStuff} />
-                </Fragment>
-            )
+            return <Loader />
         }
-        const posts = this.state.posts;
 
         return (
             <Fragment>
                 <CreatePost fetchMeStuff={this.fetchMeStuff} />
                 <FilterDropdown filterPosts={this.filterPosts} fetchMeStuff={this.fetchMeStuff} />
-                <PostFeedItem postList={posts} fetchMeStuff={this.fetchMeStuff} />
+                <PostFeedItem postList={this.state.posts} fetchMeStuff={this.fetchMeStuff} />
             </Fragment>
         );
     }

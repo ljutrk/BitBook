@@ -2,12 +2,11 @@ import React from 'react';
 
 const RegisterDescriptionItem = () => {
     return (
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">BitBook Register</span>
-                    <p>REGISTER!!!! <br />
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem modi accusantium rem unde! Hic illo exercitationem numquam consequuntur, sint est repudiandae quod earum fugiat ipsa iure reiciendis eaque beatae quisquam.Exercitationem modi accusantium rem unde! Hic illo exercitationem numquam consequuntur, sint est repudiandae quod earum fugiat ipsa iure reiciendis eaque beatae quisquam.
+        <div className="col s12 m6">
+            <div className="card">
+                <div className="card-content">
+                    <span className="card-title">BitBook Register</span>
+                    <p>Please register!
                     </p>
                 </div>
             </div>

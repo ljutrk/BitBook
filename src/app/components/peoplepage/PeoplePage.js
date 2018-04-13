@@ -30,7 +30,6 @@ class PeoplePage extends Component {
 
     render() {
 
-        if (!this.state.filteredUsers.length) { return <Loader /> }
         return (
             <Fragment>
                 <div className="row searchMargin">
@@ -41,11 +40,10 @@ class PeoplePage extends Component {
                                 <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                                 <i className="material-icons">close</i>
                             </div>
-
                         </div>
                     </nav>
                 </div>
-                {this.state.filteredUsers.map(user => <PeoplePageItem user={user} key={user.id} />)}
+                {this.state.filteredUsers.length !== 0 ? this.state.filteredUsers.map(user => <PeoplePageItem user={user} key={user.id} />) : <h1>No users!</h1>}
             </Fragment>
         );
     }

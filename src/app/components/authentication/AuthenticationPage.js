@@ -46,20 +46,20 @@ class AuthenticationPage extends React.Component {
 
         return (
             <Fragment>
-                <div class="row searchMargin">
+                <div className="row searchMargin">
                     {this.state.login ? <LoginDescriptionItem /> : <RegisterDescriptionItem />}
-                    <div class="col s12 m6">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <ul class="tabs">
-                                            <li class="tab"><a onClick={this.loginClick} class="active" href="#test1">Login</a></li>
-                                            <li class="tab"><a onClick={this.registerClick} href="#test2">Register</a></li>
+                    <div className="col s12 m6">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="row">
+                                    <div className="col s12">
+                                        <ul className="tabs">
+                                            <li className="tab"><a onClick={this.loginClick} className="active" href="#test1">Login</a></li>
+                                            <li className="tab"><a onClick={this.registerClick} href="#test2">Register</a></li>
                                         </ul>
                                     </div>
-                                    <div id="test1" class="col s12"><LoginItem loginHandler={this.loginHandler} /></div>
-                                    <div id="test2" class="col s12"><RegisterItem registerHandler={this.registerHandler} /></div>
+                                    <div id="test1" className="col s12"><LoginItem loginHandler={this.loginHandler} /></div>
+                                    <div id="test2" className="col s12"><RegisterItem registerHandler={this.registerHandler} /></div>
                                 </div>
                             </div>
                         </div>

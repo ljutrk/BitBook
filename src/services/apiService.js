@@ -40,7 +40,10 @@ const myFetchPUT = (changeProfileData) => {
         body: JSON.stringify(changeProfileData)
     }
     return fetch(api, requestOptions)
-        .then(response => response)
+        .then(response => {
+            console.log(response);
+            
+            response})
 }
 
 export { myFetchGet, myFetchPost, myFetchPUT };

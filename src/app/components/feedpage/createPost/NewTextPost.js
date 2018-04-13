@@ -28,10 +28,8 @@ class NewTextPost extends Component {
                     this.props.fetchMeStuff();
                 });
         }
-        this.resetCreateNewPostForm();
-
     }
-
+    
     resetCreateNewPostForm = () => {
         this.setState({ inputValue: "", isTextInputEmpty: true });
     }
@@ -44,7 +42,6 @@ class NewTextPost extends Component {
                     <div onClick={this.resetCreateNewPostForm} className="modal-action modal-close waves-effect waves-green btn-flat right">X</div>
                     <h4>New Post</h4>
                     <input onChange={this.textInputHandler} value={this.state.inputValue} type='text' placeholder='Write your text post here' />
-                    {this.state.isError ? this.errorMessage() : ""}
                 </div>
                 <div className="modal-footer">
                     <Link to="/" onClick={this.createPost} className={this.state.isTextInputEmpty ? button.disabled : button.active}>POST</Link>
