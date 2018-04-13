@@ -9,8 +9,6 @@ class LoginItem extends Component {
         }
     }
 
-
-
     changeEmailHandler = (event) => {
         this.setState({ username: event.target.value })
     }
@@ -24,7 +22,7 @@ class LoginItem extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        this.props.loginHandler(inputUser)
+        this.props.loginHandler(inputUser)        
     }
 
     render() {
@@ -39,4 +37,4 @@ class LoginItem extends Component {
     }
 }
 
-export { LoginItem };
+export {LoginItem};

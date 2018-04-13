@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
-import { url, headers } from "../../../shared/constants";
+import { url } from "../../../shared/constants";
 import { postService } from "../../../services/PostService";
 import { PostFeedItem } from "./PostFeedItem";
 import { CreatePost } from "./createPost/CreatePost";
 import { FilterDropdown } from './FilterDropdown';
 import "./feedPage.css";
-import { isAuthenticated } from "../../../services/AuthenticationService";
 import { Loader } from "../../partials/Loader";
 
 class FeedPage extends React.Component {
@@ -19,16 +18,6 @@ class FeedPage extends React.Component {
 
     componentDidMount() {
         this.fetchMeStuff();
-        // console.log(localStorage.getItem("SessionId"));
-        // if (isAuthenticated()) {
-        //     console.log("ima storage");
-
-        // }
-        // if (!isAuthenticated()) {
-        //     console.log("nema storage");
-
-        // }
-
     }
 
     fetchMeStuff = () => {

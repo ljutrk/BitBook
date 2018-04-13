@@ -3,7 +3,6 @@ import { url } from '../shared/constants';
 import { myFetchGet } from './apiService';
 import { Profile } from "../entities/Profile";
 import { headers } from "../shared/constants";
-import { getHeaders } from '../shared/utils';
 
 class UserService extends React.Component {
 

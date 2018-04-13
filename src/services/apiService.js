@@ -1,6 +1,5 @@
 import { url } from "../shared/constants";
 import { headers } from '../shared/constants';
-import { getHeaders } from "../shared/utils";
 
 const myFetchGet = (url) => {
 

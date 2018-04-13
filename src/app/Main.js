@@ -5,7 +5,7 @@ import { PeoplePage } from './components/peoplepage/PeoplePage';
 import { ProfilePage } from './components/profilepage/ProfilePage';
 import { PostDetailsPage } from "../app/components/postDetailsPage/PostDetailsPage";
 import { UserProfilePage } from "./components/profilepage/UserProfilePage";
-import { AuthenticationPage } from './components/authentication/AuthenticationPage';
+import AuthenticationPage from './components/authentication/AuthenticationPage';
 import WithoutAuth from './validate/WithoutAuth';
 import WithAuth from './validate/WithAuth';
 

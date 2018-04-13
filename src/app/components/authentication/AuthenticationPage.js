@@ -3,36 +3,34 @@ import M from 'materialize-css';
 import { LoginItem } from './LoginItem';
 import { RegisterItem } from './RegisterItem';
 import { LoginDescriptionItem } from './LoginDescriptionItem';
-import { userService } from '../../../services/UserService';
 import { login } from '../../../services/AuthenticationService';
 import { RegisterDescriptionItem } from './RegisterDescriptionItem';
+import { withRouter } from "react-router-dom";
+
 
 class AuthenticationPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // users: [],
             login: true
         }
     }
 
     componentDidMount() {
-
-        // userService.fetchUsers()
-        //     .then(users => {
-        //         this.setState({ users });
-        //     });
-
         const tab = document.querySelector('.tabs')
         M.Tabs.init(tab);
     }
 
     loginHandler = (inputUser) => {
-        login(inputUser);
+        login(inputUser)
+            .then( () => {
+                this.props.history.push("/")  
+            })
     }
 
     loginClick = () => {
         this.setState({ login: true })
+
     }
 
     registerClick = () => {
@@ -67,4 +65,4 @@ class AuthenticationPage extends React.Component {
     }
 }
 
-export { AuthenticationPage };
+export default withRouter(AuthenticationPage);

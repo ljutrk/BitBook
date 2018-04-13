@@ -1,7 +1,6 @@
-import { checkIfObjectsAreEqual } from '../shared/utils';
 
 const login = (loginData) => {
-    fetch("http://bitbookapi.azurewebsites.net/api/login", {
+    return fetch("http://bitbookapi.azurewebsites.net/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
