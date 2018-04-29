@@ -1,6 +1,4 @@
-import {
-    imagePlaceholder
-} from "./constants";
+import { imagePlaceholder } from "./constants";
 
 const capitalizeFirstLetter = string => (string)[0].toUpperCase() + (string).slice(1);
 
@@ -23,7 +21,6 @@ const isImageValid = (profile) => {
     return imagePlaceholder;
 }
 
-
 const changeYoutubeLink = (inputValue) => {
     if (inputValue.includes("watch?v=")) {
         inputValue = inputValue.replace("watch?v=", "embed/");
@@ -36,8 +33,18 @@ const changeYoutubeLink = (inputValue) => {
     }
 }
 
+const logout = () => {
+    localStorage.removeItem("SessionId");
+}
+
+const isAuthenticated = () => {
+    return localStorage.getItem("SessionId");
+}
+
 export {
     capitalizeFirstLetter,
     isImageValid,
     changeYoutubeLink,
+    logout,
+    isAuthenticated
 };

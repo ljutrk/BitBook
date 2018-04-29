@@ -4,9 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './app/App';
 import registerServiceWorker from './registerServiceWorker';
-
-import 'materialize-css/dist/css/materialize.css'
-
+import 'materialize-css/dist/css/materialize.css';
 import M from "materialize-css";
 
 M.AutoInit();

@@ -1,8 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from "react-router-dom";
 import M from 'materialize-css';
-import { logout } from '../../services/AuthenticationService';
-
+import { logout, isAuthenticated } from '../../shared/utils';
 class Header extends React.Component {
 
     openSideNav = () => {
@@ -16,7 +15,7 @@ class Header extends React.Component {
     }
 
     loginCheck = () => {
-        if (this.props.history.location.pathname === "/login") {
+        if (!isAuthenticated()) {
             return
         }
 

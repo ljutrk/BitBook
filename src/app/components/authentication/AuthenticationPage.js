@@ -6,6 +6,7 @@ import { LoginDescriptionItem } from './LoginDescriptionItem';
 import { login, register } from '../../../services/AuthenticationService';
 import { RegisterDescriptionItem } from './RegisterDescriptionItem';
 import { withRouter } from "react-router-dom";
+import { isAuthenticated, logout } from '../../../shared/utils';
 
 
 class AuthenticationPage extends React.Component {
@@ -24,7 +25,11 @@ class AuthenticationPage extends React.Component {
     loginHandler = (inputUser) => {
         login(inputUser)
             .then(() => {
-                this.props.history.push("/")
+                if (isAuthenticated() !== "undefined") {
+                    this.props.history.push("/");
+                } else {
+                    logout();
+                }
             })
     }
 

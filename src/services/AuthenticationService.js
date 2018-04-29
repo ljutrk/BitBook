@@ -1,3 +1,4 @@
+import { isAuthenticated } from "../shared/utils";
 
 const login = (loginData) => {
     return fetch("http://bitbookapi.azurewebsites.net/api/login", {
@@ -23,12 +24,4 @@ const register = (registerData) => {
     })
 }
 
-const logout = () => {
-    localStorage.removeItem("SessionId");
-}
-
-const isAuthenticated = () => {
-    return localStorage.getItem("SessionId");
-}
-
-export { login, logout, register, isAuthenticated }
+export {login, register }
