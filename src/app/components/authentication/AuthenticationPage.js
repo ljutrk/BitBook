@@ -34,7 +34,7 @@ class AuthenticationPage extends React.Component {
 
     registerHandler = (inputUser) => {
         register(inputUser)
-        this.props.history.push("/login")
+        alert("You have successfully registered!");
     }
 
     loginClick = () => {

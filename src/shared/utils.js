@@ -33,6 +33,10 @@ const changeYoutubeLink = (inputValue) => {
     }
 }
 
+const isEmailValid = (email) => {
+    return email.includes("@") && email.includes(".com")
+}
+
 const logout = () => {
     localStorage.removeItem("SessionId");
 }
@@ -46,5 +50,6 @@ export {
     isImageValid,
     changeYoutubeLink,
     logout,
-    isAuthenticated
+    isAuthenticated,
+    isEmailValid
 };
