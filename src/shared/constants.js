@@ -1,5 +1,5 @@
 const url = {
-    baseUrl: "http://bitbookapi.azurewebsites.net/api/",
+    baseUrl: "https://bitbookapi.azurewebsites.net/api/",
     posts: "Posts",
     comments: "Comments?postId=",
     users: "users/",
@@ -8,8 +8,9 @@ const url = {
     editProfile: "Profiles",
     textPosts: "TextPosts",
     imagePosts: "ImagePosts",
-    videoPosts: "VideoPosts"
-
+    videoPosts: "VideoPosts",
+    login: "login",
+    register:"register"
 }
 
 const button = {

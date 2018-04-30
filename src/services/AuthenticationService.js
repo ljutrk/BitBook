@@ -1,7 +1,9 @@
+import { url } from "../shared/constants";
+
 // import { isAuthenticated } from "../shared/utils";
 
 const login = (loginData) => {
-    return fetch("http://bitbookapi.azurewebsites.net/api/login", {
+    return fetch(url.baseUrl + url.login, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -14,7 +16,7 @@ const login = (loginData) => {
 }
 
 const register = (registerData) => {
-    return fetch("http://bitbookapi.azurewebsites.net/api/register", {
+    return fetch(url.baseUrl + url.register, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
