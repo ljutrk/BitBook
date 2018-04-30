@@ -9,7 +9,8 @@ class PeoplePage extends Component {
         this.state = {
             users: [],
             searchValue: "",
-            filteredUsers: []
+            filteredUsers: [],
+            pageReady: false
         }
     }
 
@@ -18,6 +19,7 @@ class PeoplePage extends Component {
             .then(users => {
                 this.setState({ users });
                 this.setState({ filteredUsers: users });
+                this.setState({ pageReady: true });
             });
 
     }
@@ -29,6 +31,10 @@ class PeoplePage extends Component {
     }
 
     render() {
+
+        if (!this.state.pageReady) {
+            return <Loader />
+        }
 
         return (
             <Fragment>

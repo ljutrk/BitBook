@@ -8,7 +8,6 @@ import { RegisterDescriptionItem } from './RegisterDescriptionItem';
 import { withRouter } from "react-router-dom";
 import { isAuthenticated, logout } from '../../../shared/utils';
 
-
 class AuthenticationPage extends React.Component {
     constructor(props) {
         super(props);

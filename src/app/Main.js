@@ -5,17 +5,21 @@ import { PeoplePage } from './components/peoplepage/PeoplePage';
 import { ProfilePage } from './components/profilepage/ProfilePage';
 import { PostDetailsPage } from "../app/components/postDetailsPage/PostDetailsPage";
 import { UserProfilePage } from "./components/profilepage/UserProfilePage";
+import { isAuthenticated } from '../shared/utils';
 import AuthenticationPage from './components/authentication/AuthenticationPage';
-import WithoutAuth from './validate/WithoutAuth';
-import WithAuth from './validate/WithAuth';
 
 class Main extends Component {
-
     render() {
+        if (!isAuthenticated()) {
+            return (
+                <main className="container-main">
+                    <AuthenticationPage />
+                </main>)
+        }
         return (
             <main className="container-main">
                 <Switch>
-                    <Route exact path='/login' component={AuthenticationPage} />
+                    {/* <Route exact path='/login' component={AuthenticationPage} /> */}
                     <Route path='/post/:type/:id' component={PostDetailsPage} />
                     <Route path='/users/:id' component={UserProfilePage} />
                     <Route path='/people' component={PeoplePage} />
