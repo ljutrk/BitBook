@@ -17,7 +17,7 @@ class AuthenticationPage extends React.Component {
     }
 
     componentDidMount() {
-        const tab = document.querySelector('.tabs')
+        const tab = document.querySelector('.tabs');
         M.Tabs.init(tab);
     }
 
@@ -28,22 +28,23 @@ class AuthenticationPage extends React.Component {
                     this.props.history.push("/");
                 } else {
                     logout();
+                    alert("Your login data is incorrect!");
                 }
             })
     }
 
     registerHandler = (inputUser) => {
-        register(inputUser)
+        register(inputUser);
         alert("You have successfully registered!");
     }
 
     loginClick = () => {
-        this.setState({ login: true })
+        this.setState({ login: true });
 
     }
 
     registerClick = () => {
-        this.setState({ login: false })
+        this.setState({ login: false });
     }
 
     render() {
